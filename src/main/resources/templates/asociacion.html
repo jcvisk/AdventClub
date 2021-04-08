@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="theme/template :: head"></head>
+
+    <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+
+            <!-- Navbar -->
+            <nav th:replace="theme/template :: navbar"></nav>
+            <!-- /.navbar -->
+
+            <!-- Main Sidebar Container -->
+            <aside th:replace="theme/template :: sidebar"></aside>
+            <!-- /.main Sidebar Container -->
+
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="m-0">Dashboard</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active">Dashboard</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.content-header -->
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                       <div th:replace="theme/template :: associations"></div>
+                        <!--<div class="row">
+                          <div class="col">
+                            <div th:if="${estatus != null && !estatus.empty}">
+                              <table>
+                                <tr>
+                                  <th>ID:</th>
+                                  <th>Descripcion:</th>
+                                  <th>Panel</th>
+                                </tr>
+
+                                <tr th:each="estatu : ${estatus}">
+                                  <td th:text="${estatu.id}"></td>
+                                  <td th:text="${estatu.descripcion}"></td>
+                                  <td>
+                                    &lt;!&ndash; Path Variable
+                                    <a th:href="@{/editar/} + ${estatu.id}"><i class="fas fa-edit"></i></a>&ndash;&gt;
+                                    <a th:href="@{/editar(id=${estatu.id})}"><i class="fas fa-edit"></i></a>
+                                    &lt;!&ndash; Query Parameter &ndash;&gt;
+                                    <a th:href="@{/eliminar(id=${estatu.id})}"><i class="fas fa-trash-alt"></i></a>
+                                  </td>
+                                </tr>
+
+                              </table>
+                            </div>
+                            <div th:if="${estatus == null || estatus.empty}">
+                              <p>La lista de personas esta vacía</p>
+                            </div>
+                            <div>
+                              <a th:href="@{/agregar}">Agregar</a>
+                            </div>
+                          </div>
+                        </div>-->
+                    </div>
+                </section>
+
+            </div>
+            <footer th:replace="theme/template :: footer"></footer>
+
+            <aside class="control-sidebar control-sidebar-dark">
+            </aside>
+
+        </div>
+        <div th:replace="theme/template :: js"></div>
+    </body>
+</html>

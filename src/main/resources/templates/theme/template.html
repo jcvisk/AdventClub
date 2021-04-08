@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:fragment="title">AdventClub | Adminitración</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="dist/css/custom.css">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav th:fragment="navbar" class="main-header navbar navbar-expand navbar-white navbar-light">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a th:href="@{/}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a th:href="@{/}" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <div class="user-panel d-flex">
+                        <div class="image">
+                            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a th:href="@{/}" class="d-block">Admin</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside th:fragment="sidebar" class="main-sidebar sidebar-dark-primary elevation-4">
+            <a th:href="@{/}" class="brand-link">
+                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
+                <span class="brand-text font-weight-light">AdventClub</span>
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-header">Menu</li>
+                        <li class="nav-item">
+                            <a th:href="@{/asociacionDisplay}" class="nav-link">
+                                <i class="nav-icon fas fa-building"></i>
+                                <p>
+                                    Asociaciones
+                                    <span class="badge badge-info right">2</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/distritoDisplay}" class="nav-link">
+                                <i class="nav-icon fas fa-globe-americas"></i>
+                                <p>
+                                    Distritos
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/iglesiaDisplay}" class="nav-link">
+                                <i class="nav-icon fas fa-church"></i>
+                                <p>
+                                    Iglesias
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/clubDisplay}" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Clubes
+                                    <span class="badge badge-info right">2</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/miembroDisplay}" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Miembros
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/}" class="nav-link">
+                                <i class="nav-icon ion ion-android-calendar"></i>
+                                <p>
+                                    Periodo
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/}" class="nav-link">
+                                <i class="nav-icon fas fa-users-cog"></i>
+                                <p>
+                                    Usuarios
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/}" class="nav-link">
+                                <i class="nav-icon ion ion-document-text"></i>
+                                <p>
+                                    Reportes
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- /.main Sidebar Container -->
+
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Dashboard</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div th:fragment="initialMenu" class="row">
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>150</h3>
+
+                                    <p>Asociaciones</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <a th:href="@{/asociacionDisplay}" class="small-box-footer">Ver Más <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>53</h3>
+
+                                    <p>Distritos</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-globe-americas"></i>
+                                </div>
+                                <a th:href="@{/distritoDisplay}" class="small-box-footer">Ver Más <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>44</h3>
+
+                                    <p>Iglesias</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-church"></i>
+                                </div>
+                                <a th:href="@{/iglesiaDisplay}" class="small-box-footer">Ver Más <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-maroon">
+                                <div class="inner">
+                                    <h3>65</h3>
+
+                                    <p>Clubes</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <a th:href="@{/clubDisplay}" class="small-box-footer">Ver Más <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-orange">
+                                <div class="inner">
+                                    <h3>65</h3>
+
+                                    <p>Miembros</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <a th:href="@{/miembroDisplay}" class="small-box-footer">Ver Más <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-teal">
+                                <div class="inner">
+                                    <h3>65</h3>
+
+                                    <p>Periodo</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-android-calendar"></i>
+                                </div>
+                                <a th:href="@{/periodoDisplay}" class="small-box-footer">Ver Más <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-pink">
+                                <div class="inner">
+                                    <h3>65</h3>
+
+                                    <p>Usuarios</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <a th:href="@{/usuarioDisplay}" class="small-box-footer">Ver Más <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-purple">
+                                <div class="inner">
+                                    <h3>65</h3>
+
+                                    <p>Reportes</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-document-text"></i>
+                                </div>
+                                <a th:href="@{/reportesDisplay}" class="small-box-footer">Ver Más <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Asociaciones -->
+                    <div th:fragment="associations" class="row">
+                        <div class="col-md-6">
+                            <div class="card card-info">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nueva Asociación</h3>
+                                </div>
+                                <form th:action="@{/asociacionCreate}" method="POST" th:object="${asociacion}">
+                                    <!-- Pasando el estaus activo -->
+                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombre">Asociación: </label>
+                                                    <input type="text" name="nombre" th:field="${asociacion.nombre}" placeholder="Nombre de la asociación" class="form-control"  required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombrePresidente">Presiente</label>
+                                                    <input type="text" class="form-control" th:field="${asociacion.datosadministracion.precidente}"
+                                                           placeholder="Nombre del presidente" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreSecretario">Secretario</label>
+                                                    <input type="text" class="form-control" th:field="${asociacion.datosadministracion.secretario}"
+                                                           placeholder="Nombre del secretario" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreTesorero">Tesorero</label>
+                                                    <input type="text" class="form-control" th:field="${asociacion.datosadministracion.tesorero}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button type="submit" name="guardar" value="guadar" class="btn btn-info" onclick="return validateSaved();">
+                                            <i class="ion ion-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Asociaciones</h3>
+                                </div>
+                                <div class="card-body p-0 table-responsive-lg">
+                                    <table class="table table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Presiente</th>
+                                            <th>Secretario</th>
+                                            <th>Tesorero</th>
+                                            <th>Panel</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody th:if="${asociaciones != null && !asociaciones.empty}">
+                                        <tr th:each="asociacion : ${asociaciones}">
+                                            <td th:text="${asociacion.id}"></td>
+                                            <td th:text="${asociacion.nombre}"></td>
+                                            <td th:text="${asociacion.datosadministracion.precidente}"></td>
+                                            <td th:text="${asociacion.datosadministracion.secretario}"></td>
+                                            <td th:text="${asociacion.datosadministracion.tesorero}"></td>
+                                            <td>
+                                                <a class="text-primary" th:href="@{/asociacionUpdate(id=${asociacion.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
+                                                <a class="text-danger" th:href="@{/asociacionDelete(id=${asociacion.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <div th:if="${asociaciones == null || asociaciones.empty}">
+                                            <div class="alert alert-danger" role="alert">
+                                                NO EXITEN ASOCIACIONES!!!
+                                            </div>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal de edicion -->
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateModalLabel">Editar Asociación</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form th:action="@{/asociacionCreate}" method="POST" th:object="${asociacionUpdate}">
+                                            <!-- Pasando el id de la asociacion -->
+                                            <input type="hidden" name="id" th:field="${asociacionUpdate.id}">
+                                            <!-- Pasando el estaus activo -->
+                                            <input type="hidden" name="estatus" value="1" id="estatus.id">
+
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombre">Asociación: </label>
+                                                            <input type="text" name="nombre" th:field="${asociacionUpdate.nombre}" placeholder="Nombre de la asociación" class="form-control"  required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombrePresidente">Presiente</label>
+                                                            <input type="text" class="form-control" th:field="${asociacionUpdate.datosadministracion.precidente}"
+                                                                   placeholder="Nombre del presidente" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreSecretario">Secretario</label>
+                                                            <input type="text" class="form-control" th:field="${asociacionUpdate.datosadministracion.secretario}"
+                                                                   placeholder="Nombre del secretario" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreTesorero">Tesorero</label>
+                                                            <input type="text" class="form-control" th:field="${asociacionUpdate.datosadministracion.tesorero}"
+                                                                   placeholder="Nombre del tesorero" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-right">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" name="guardar" value="guadar" class="btn btn-info" onclick="return validateSaved();">
+                                                    <i class="fas fa-save"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Distritos -->
+                    <div th:fragment="districts" class="row">
+                        <div class="col-md-6">
+                            <div class="card card-success">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nuevo Distrito</h3>
+                                </div>
+                                <form th:action="@{/distritoCreate}" method="POST" th:object="${distrito}">
+                                    <!-- Pasando el estaus activo -->
+                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                                    <label for="nombre">Distrito</label>
+                                                    <input type="text" th:field="${distrito.nombre}" class="form-control"
+                                                           placeholder="Nombre del distrito" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombrePresidente">Presiente</label>
+                                                    <input type="text" th:field="${distrito.datosadministracion.precidente}"
+                                                           class="form-control" placeholder="Nombre del presidente" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreSecretrio">Secretario</label>
+                                                    <input type="text" th:field="${distrito.datosadministracion.secretario}" class="form-control"
+                                                        placeholder="Nombre del secretario" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreTesorero">Tesorero</label>
+                                                    <input type="text" th:field="${distrito.datosadministracion.tesorero}" class="form-control"
+                                                        placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="asociacion">Asociación</label>
+                                                    <div th:if="${asociaciones != null && !asociaciones.empty}">
+                                                        <select name="asociacion" id="asociacion.id" class="form-control" required>
+                                                            <div th:each="asociacion : ${asociaciones}">
+                                                                <option th:value="${asociacion.id}" th:text="${asociacion.nombre}"></option>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${asociaciones == null || asociaciones.empty}">
+                                                        NO EXITEN ASOCIACIONES
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button type="submit" class="btn btn-success" onclick="return validateSaved()">
+                                            <i class="ion ion-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Distritos</h3>
+                                </div>
+                                <div class="card-body p-0 table-responsive-lg">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Presiente</th>
+                                                <th>Secretario</th>
+                                                <th>Tesorero</th>
+                                                <th>Asociación</th>
+                                                <th>Panel</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody th:if="${distritos != null && !distritos.empty}">
+                                            <tr th:each="distrito : ${distritos}">
+                                                <td th:text="${distrito.id}"></td>
+                                                <td th:text="${distrito.nombre}"></td>
+                                                <td th:text="${distrito.datosadministracion.precidente}"></td>
+                                                <td th:text="${distrito.datosadministracion.secretario}"></td>
+                                                <td th:text="${distrito.datosadministracion.tesorero}"></td>
+                                                <td th:text="${distrito.asociacion.nombre}"></td>
+                                                <td>
+                                                    <a class="text-primary" th:href="@{/distritoUpdate(id=${distrito.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
+                                                    <a class="text-danger" th:href="@{/distritoDelete(id=${distrito.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <div th:if="${distritos == null || distritos.empty}">
+                                            <div class="alert alert-danger" role="alert">
+                                                NO EXITEN DISTRITOS!!!
+                                            </div>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal de edicion -->
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateModalLabel">Editar Distrito</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form th:action="@{/distritoCreate}" method="POST" th:object="${distritoUpdate}">
+                                            <!-- Pasando el id del distrito -->
+                                            <input type="hidden" name="id" th:field="${distritoUpdate.id}">
+                                            <!-- Pasando el estaus activo -->
+                                            <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                                            <label for="nombre">Distrito</label>
+                                                            <input type="text" th:field="${distritoUpdate.nombre}" class="form-control"
+                                                                   placeholder="Nombre del distrito" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombrePresidente">Presiente</label>
+                                                            <input type="text" th:field="${distritoUpdate.datosadministracion.precidente}"
+                                                                   class="form-control" placeholder="Nombre del presidente" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreSecretrio">Secretario</label>
+                                                            <input type="text" th:field="${distritoUpdate.datosadministracion.secretario}" class="form-control"
+                                                                   placeholder="Nombre del secretario" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreTesorero">Tesorero</label>
+                                                            <input type="text" th:field="${distritoUpdate.datosadministracion.tesorero}" class="form-control"
+                                                                   placeholder="Nombre del tesorero" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="asociacion">Asociación</label>
+                                                            <div th:if="${asociaciones != null && !asociaciones.empty}">
+                                                                <select name="asociacion" id="asociacion.id" class="form-control" required>
+                                                                    <div th:each="asociacion : ${asociaciones}">
+                                                                        <option th:value="${asociacion.id}" th:text="${asociacion.nombre}"></option>
+                                                                    </div>
+                                                                </select>
+                                                            </div>
+                                                            <div th:if="${asociaciones == null || asociaciones.empty}">
+                                                                NO EXITEN ASOCIACIONES
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-right">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-success" onclick="return validateSaved()">
+                                                    <i class="fas fa-save"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Iglesias -->
+                    <div th:fragment="churches" class="row">
+                        <div class="col-md-6">
+                            <div class="card card-warning">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nueva Iglesia</h3>
+                                </div>
+                                <form th:action="@{/iglesiaCreate}"  method="POST" th:object="${iglesia}">
+                                    <!-- Pasando el estaus activo -->
+                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombre">Iglesia</label>
+                                                    <input type="text" class="form-control" th:field="${iglesia.nombre}"
+                                                        placeholder="Nombre de la iglesia" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombrePresidente">Presiente</label>
+                                                    <input type="text" class="form-control" th:field="${iglesia.datosadministracion.precidente}"
+                                                        placeholder="Nombre del presidente" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreSecretrio">Secretario</label>
+                                                    <input type="text" class="form-control" th:field="${iglesia.datosadministracion.secretario}"
+                                                        placeholder="Nombre del secretario" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreTesorero">Tesorero</label>
+                                                    <input type="text" class="form-control" th:field="${iglesia.datosadministracion.tesorero}"
+                                                        placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="distrito">Distrito</label>
+                                                    <div th:if="${distritos != null && !distritos.empty}">
+                                                        <select name="distrito" id="distrito.id" class="form-control" required>
+                                                            <div th:each="distrito : ${distritos}">
+                                                                <option th:value="${distrito.id}" th:text="${distrito.nombre}"></option>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${distritos == null || distritos.empty}">
+                                                        NO EXITEN DISTRITOS
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button type="submit" class="btn btn-warning" onclick="return validateSaved()">
+                                            <i class="ion ion-plus"></i>Agregar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Iglesias</h3>
+                                </div>
+                                <div class="card-body p-0">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Presiente</th>
+                                                <th>Secretario</th>
+                                                <th>Tesorero</th>
+                                                <th>Distrito</th>
+                                                <th>Panel</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody th:if="${iglesias != null && !iglesias.empty}">
+                                            <tr th:each="iglesia : ${iglesias}">
+                                                <td th:text="${iglesia.id}"></td>
+                                                <td th:text="${iglesia.nombre}"></td>
+                                                <td th:text="${iglesia.datosadministracion.precidente}"></td>
+                                                <td th:text="${iglesia.datosadministracion.secretario}"></td>
+                                                <td th:text="${iglesia.datosadministracion.tesorero}"></td>
+                                                <td th:text="${iglesia.distrito.nombre}"></td>
+                                                <td>
+                                                    <a class="text-primary" th:href="@{/iglesiaUpdate(id=${iglesia.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
+                                                    <a class="text-danger" th:href="@{/iglesiaDelete(id=${iglesia.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <div th:if="${iglesias == null || iglesias.empty}">
+                                            <div class="alert alert-danger" role="alert">
+                                                NO EXITEN IGLESIAS!!!
+                                            </div>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal de edicion -->
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateModalLabel">Editar Iglesia</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form th:action="@{/iglesiaCreate}"  method="POST" th:object="${iglesiaUpdate}">
+                                            <!-- Pasando el id de la asociacion -->
+                                            <input type="hidden" name="id" th:field="${iglesiaUpdate.id}">
+                                            <!-- Pasando el estaus activo -->
+                                            <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombre">Iglesia</label>
+                                                            <input type="text" class="form-control" th:field="${iglesiaUpdate.nombre}"
+                                                                   placeholder="Nombre de la iglesia" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombrePresidente">Presiente</label>
+                                                            <input type="text" class="form-control" th:field="${iglesiaUpdate.datosadministracion.precidente}"
+                                                                   placeholder="Nombre del presidente" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreSecretrio">Secretario</label>
+                                                            <input type="text" class="form-control" th:field="${iglesiaUpdate.datosadministracion.secretario}"
+                                                                   placeholder="Nombre del secretario" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreTesorero">Tesorero</label>
+                                                            <input type="text" class="form-control" th:field="${iglesiaUpdate.datosadministracion.tesorero}"
+                                                                   placeholder="Nombre del tesorero" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="distrito">Distrito</label>
+                                                            <div th:if="${distritos != null && !distritos.empty}">
+                                                                <select name="distrito" id="distrito.id" class="form-control" required>
+                                                                    <div th:each="distrito : ${distritos}">
+                                                                        <option th:value="${distrito.id}" th:text="${distrito.nombre}"></option>
+                                                                    </div>
+                                                                </select>
+                                                            </div>
+                                                            <div th:if="${distritos == null || distritos.empty}">
+                                                                NO EXITEN DISTRITOS
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-right">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-warning" onclick="return validateSaved()">
+                                                    <i class="fas fa-save"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Clubes -->
+                    <div th:fragment="clubs" class="row">
+                        <div class="col-md-6">
+                            <div class="card card-maroon">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nuevo Club</h3>
+                                </div>
+                                <form th:action="@{/clubCreate}" method="POST" th:object="${club}">
+                                    <!-- Pasando el estaus activo -->
+                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombre">Club</label>
+                                                    <input type="text" class="form-control" th:field="${club.nombre}"
+                                                        placeholder="Nombre del club" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombrePresidente">Presiente</label>
+                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.precidente}"
+                                                        placeholder="Nombre del presidente" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreSecretrio">Secretario</label>
+                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.secretario}"
+                                                        placeholder="Nombre del secretario" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreTesorero">Tesorero</label>
+                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.tesorero}"
+                                                        placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="iglesia">Iglesia</label>
+                                                    <div th:if="${iglesias != null && !iglesias.empty}">
+                                                        <select name="iglesia" id="iglesias.id" class="form-control" required>
+                                                            <div th:each="iglesia : ${iglesias}">
+                                                                <option th:value="${iglesia.id}" th:text="${iglesia.nombre}"></option>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${iglesias == null || iglesias.empty}">
+                                                        NO EXITEN IGLESIAS
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                            <i class="ion ion-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Clubes</h3>
+                                </div>
+                                <div class="card-body p-0">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Presiente</th>
+                                                <th>Secretario</th>
+                                                <th>Tesorero</th>
+                                                <th>Iglesia</th>
+                                                <th>Panel</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody th:if="${clubes != null && !clubes.empty}">
+                                        <tr th:each="club : ${clubes}">
+                                            <td th:text="${club.id}"></td>
+                                            <td th:text="${club.nombre}"></td>
+                                            <td th:text="${club.datosadministracion.precidente}"></td>
+                                            <td th:text="${club.datosadministracion.secretario}"></td>
+                                            <td th:text="${club.datosadministracion.tesorero}"></td>
+                                            <td th:text="${club.iglesia.nombre}"></td>
+                                            <td>
+                                                <a class="text-primary" th:href="@{/clubUpdate(id=${club.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
+                                                <a class="text-danger" th:href="@{/clubDelete(id=${club.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <div th:if="${clubes == null || clubes.empty}">
+                                            <div class="alert alert-danger" role="alert">
+                                                NO EXITEN CLUBES!!!
+                                            </div>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal de edicion -->
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateModalLabel">Editar Club</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form th:action="@{/clubCreate}" method="POST" th:object="${clubUpdate}">
+                                            <!-- Pasando el id del club -->
+                                            <input type="hidden" name="id" th:field="${clubUpdate.id}">
+                                            <!-- Pasando el estaus activo -->
+                                            <input type="hidden" name="estatus" value="1" id="estatus.id">
+
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombre">Club</label>
+                                                            <input type="text" class="form-control" th:field="${clubUpdate.nombre}"
+                                                                   placeholder="Nombre del club" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombrePresidente">Presiente</label>
+                                                            <input type="text" class="form-control" th:field="${clubUpdate.datosadministracion.precidente}"
+                                                                   placeholder="Nombre del presidente" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreSecretrio">Secretario</label>
+                                                            <input type="text" class="form-control" th:field="${clubUpdate.datosadministracion.secretario}"
+                                                                   placeholder="Nombre del secretario" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreTesorero">Tesorero</label>
+                                                            <input type="text" class="form-control" th:field="${clubUpdate.datosadministracion.tesorero}"
+                                                                   placeholder="Nombre del tesorero" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="iglesia">Iglesia</label>
+                                                            <div th:if="${iglesias != null && !iglesias.empty}">
+                                                                <select name="iglesia" id="iglesias.id" class="form-control" required>
+                                                                    <div th:each="iglesia : ${iglesias}">
+                                                                        <option th:value="${iglesia.id}" th:text="${iglesia.nombre}"></option>
+                                                                    </div>
+                                                                </select>
+                                                            </div>
+                                                            <div th:if="${iglesias == null || iglesias.empty}">
+                                                                NO EXITEN IGLESIAS
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-right">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                                    <i class="fas fa-save"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Miembros -->
+                    <div th:fragment="members" class="row">
+                        <!--<div class="col-md-6">
+                            <div class="card card-maroon">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nuevo Club</h3>
+                                </div>
+                                <form th:action="@{/clubCreate}" method="POST" th:object="${club}">
+                                    &lt;!&ndash; Pasando el estaus activo &ndash;&gt;
+                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombre">Club</label>
+                                                    <input type="text" class="form-control" th:field="${club.nombre}"
+                                                           placeholder="Nombre del club" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombrePresidente">Presiente</label>
+                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.precidente}"
+                                                           placeholder="Nombre del presidente" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreSecretrio">Secretario</label>
+                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.secretario}"
+                                                           placeholder="Nombre del secretario" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreTesorero">Tesorero</label>
+                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.tesorero}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="iglesia">Iglesia</label>
+                                                    <div th:if="${iglesias != null && !iglesias.empty}">
+                                                        <select name="iglesia" id="iglesias.id" class="form-control" required>
+                                                            <div th:each="iglesia : ${iglesias}">
+                                                                <option th:value="${iglesia.id}" th:text="${iglesia.nombre}"></option>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${iglesias == null || iglesias.empty}">
+                                                        NO EXITEN IGLESIAS
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                            <i class="ion ion-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Clubes</h3>
+                                </div>
+                                <div class="card-body p-0">
+                                    <table class="table table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Presiente</th>
+                                            <th>Secretario</th>
+                                            <th>Tesorero</th>
+                                            <th>Iglesia</th>
+                                            <th>Panel</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody th:if="${clubes != null && !clubes.empty}">
+                                        <tr th:each="club : ${clubes}">
+                                            <td th:text="${club.id}"></td>
+                                            <td th:text="${club.nombre}"></td>
+                                            <td th:text="${club.datosadministracion.precidente}"></td>
+                                            <td th:text="${club.datosadministracion.secretario}"></td>
+                                            <td th:text="${club.datosadministracion.tesorero}"></td>
+                                            <td th:text="${club.iglesia.nombre}"></td>
+                                            <td>
+                                                <a class="text-primary" th:href="@{/clubUpdate(id=${club.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
+                                                <a class="text-danger" th:href="@{/clubDelete(id=${club.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <div th:if="${clubes == null || clubes.empty}">
+                                            <div class="alert alert-danger" role="alert">
+                                                NO EXITEN CLUBES!!!
+                                            </div>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        &lt;!&ndash; Modal de edicion &ndash;&gt;
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateModalLabel">Editar Club</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form th:action="@{/clubCreate}" method="POST" th:object="${clubUpdate}">
+                                            &lt;!&ndash; Pasando el id del club &ndash;&gt;
+                                            <input type="hidden" name="id" th:field="${clubUpdate.id}">
+                                            &lt;!&ndash; Pasando el estaus activo &ndash;&gt;
+                                            <input type="hidden" name="estatus" value="1" id="estatus.id">
+
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombre">Club</label>
+                                                            <input type="text" class="form-control" th:field="${clubUpdate.nombre}"
+                                                                   placeholder="Nombre del club" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombrePresidente">Presiente</label>
+                                                            <input type="text" class="form-control" th:field="${clubUpdate.datosadministracion.precidente}"
+                                                                   placeholder="Nombre del presidente" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreSecretrio">Secretario</label>
+                                                            <input type="text" class="form-control" th:field="${clubUpdate.datosadministracion.secretario}"
+                                                                   placeholder="Nombre del secretario" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombreTesorero">Tesorero</label>
+                                                            <input type="text" class="form-control" th:field="${clubUpdate.datosadministracion.tesorero}"
+                                                                   placeholder="Nombre del tesorero" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="iglesia">Iglesia</label>
+                                                            <div th:if="${iglesias != null && !iglesias.empty}">
+                                                                <select name="iglesia" id="iglesias.id" class="form-control" required>
+                                                                    <div th:each="iglesia : ${iglesias}">
+                                                                        <option th:value="${iglesia.id}" th:text="${iglesia.nombre}"></option>
+                                                                    </div>
+                                                                </select>
+                                                            </div>
+                                                            <div th:if="${iglesias == null || iglesias.empty}">
+                                                                NO EXITEN IGLESIAS
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-right">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                                    <i class="fas fa-save"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </section>
+            <!-- /Main content -->
+
+        </div>
+
+        <!-- Footer -->
+        <footer th:fragment="footer" class="main-footer">
+            <strong>Copyright &copy; 2021 <a href="https://adminlte.io">AdventClub</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 1.0 Beta
+            </div>
+        </footer>
+        <!-- /Footer -->
+    </div>
+    <div th:fragment="js" th:remove="tag">
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+            $.widget.bridge('uibutton', $.ui.button)
+        </script>
+        <!-- Bootstrap 4 -->
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- ChartJS -->
+        <script src="plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="plugins/moment/moment.min.js"></script>
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="dist/js/pages/dashboard.js"></script>
+
+        <script>
+            function getParameter(parameterName){
+                let parameters = new URLSearchParams(window.location.search);
+                return parameters.get(parameterName);
+            }
+
+            if(getParameter("modal") == "true"){
+                $("#updateModal").modal();
+            }
+        </script>
+
+        <script>
+            function validateSaved() {
+                if (confirm('ESTAS SEGURO QUE DESEAS GUARDAR LOS DATOS?')) {
+                    return true;
+                }
+                return false;
+            };
+
+            function validateRemoved() {
+                if (confirm('ESTAS SEGURO QUE DESEAS ELIMINAR LOS DATOS?')) {
+                    return true;
+                }
+                return false;
+            };
+        </script>
+    </div>
+</body>
+
+</html>
