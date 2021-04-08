@@ -23,7 +23,7 @@ public class MiembroServiceImpl implements MiembroService{
 
     @Override
     @Transactional
-    public void saveMiembro(Miembro miembro) {
+    public void createMiembro(Miembro miembro) {
         miembroRepository.save(miembro);
     }
 
