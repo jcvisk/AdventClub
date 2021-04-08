@@ -4,6 +4,7 @@
 <head th:fragment="head">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="dist/img/logo.png" type="image/x-icon">
     <title th:fragment="title">AdventClub | Adminitración</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -112,6 +113,36 @@
                                     <span class="badge badge-info right">2</span>
                                 </p>
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Incripciones
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right">3</span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Aventureros</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Conquistadores</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/boxed.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Guias Mayores</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a th:href="@{/miembroDisplay}" class="nav-link">
@@ -989,45 +1020,45 @@
                     </div>
                     <!-- Miembros -->
                     <div th:fragment="members" class="row">
-                        <!--<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="card card-maroon">
                                 <div class="card-header">
                                     <h3 class="card-title">Nuevo Club</h3>
                                 </div>
-                                <form th:action="@{/clubCreate}" method="POST" th:object="${club}">
-                                    &lt;!&ndash; Pasando el estaus activo &ndash;&gt;
+                                <form th:action="@{/clubCreate}" method="POST">
+                                    <!-- Pasando el estaus activo -->
                                     <input type="hidden" name="estatus" value="1" id="estatus.id">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombre">Club</label>
-                                                    <input type="text" class="form-control" th:field="${club.nombre}"
+                                                    <input type="text" class="form-control"
                                                            placeholder="Nombre del club" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombrePresidente">Presiente</label>
-                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.precidente}"
+                                                    <input type="text" class="form-control"
                                                            placeholder="Nombre del presidente" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreSecretrio">Secretario</label>
-                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.secretario}"
+                                                    <input type="text" class="form-control"
                                                            placeholder="Nombre del secretario" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreTesorero">Tesorero</label>
-                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.tesorero}"
+                                                    <input type="text" class="form-control"
                                                            placeholder="Nombre del tesorero" required>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <!--<div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="iglesia">Iglesia</label>
                                                     <div th:if="${iglesias != null && !iglesias.empty}">
@@ -1041,7 +1072,7 @@
                                                         NO EXITEN IGLESIAS
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                     <div class="card-footer text-right">
@@ -1052,7 +1083,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!--<div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">Clubes</h3>
@@ -1092,9 +1123,9 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
-                        &lt;!&ndash; Modal de edicion &ndash;&gt;
-                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                        </div>-->
+                        <!-- Modal de edicion -->
+                        <!--<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
