@@ -405,7 +405,7 @@
                                         </tbody>
                                         <div th:if="${asociaciones == null || asociaciones.empty}">
                                             <div class="alert alert-danger" role="alert">
-                                                NO EXITEN ASOCIACIONES!!!
+                                                NO EXISTEN ASOCIACIONES!!!
                                             </div>
                                         </div>
                                     </table>
@@ -524,7 +524,7 @@
                                                         </select>
                                                     </div>
                                                     <div th:if="${asociaciones == null || asociaciones.empty}">
-                                                        NO EXITEN ASOCIACIONES
+                                                        NO EXISTEN ASOCIACIONES
                                                     </div>
                                                 </div>
                                             </div>
@@ -572,7 +572,7 @@
                                         </tbody>
                                         <div th:if="${distritos == null || distritos.empty}">
                                             <div class="alert alert-danger" role="alert">
-                                                NO EXITEN DISTRITOS!!!
+                                                NO EXISTEN DISTRITOS!!!
                                             </div>
                                         </div>
                                     </table>
@@ -637,7 +637,7 @@
                                                                 </select>
                                                             </div>
                                                             <div th:if="${asociaciones == null || asociaciones.empty}">
-                                                                NO EXITEN ASOCIACIONES
+                                                                NO EXISTEN ASOCIACIONES
                                                             </div>
                                                         </div>
                                                     </div>
@@ -706,7 +706,7 @@
                                                         </select>
                                                     </div>
                                                     <div th:if="${distritos == null || distritos.empty}">
-                                                        NO EXITEN DISTRITOS
+                                                        NO EXISTEN DISTRITOS
                                                     </div>
                                                 </div>
                                             </div>
@@ -754,7 +754,7 @@
                                         </tbody>
                                         <div th:if="${iglesias == null || iglesias.empty}">
                                             <div class="alert alert-danger" role="alert">
-                                                NO EXITEN IGLESIAS!!!
+                                                NO EXISTEN IGLESIAS!!!
                                             </div>
                                         </div>
                                     </table>
@@ -818,7 +818,7 @@
                                                                 </select>
                                                             </div>
                                                             <div th:if="${distritos == null || distritos.empty}">
-                                                                NO EXITEN DISTRITOS
+                                                                NO EXISTEN DISTRITOS
                                                             </div>
                                                         </div>
                                                     </div>
@@ -887,7 +887,7 @@
                                                         </select>
                                                     </div>
                                                     <div th:if="${iglesias == null || iglesias.empty}">
-                                                        NO EXITEN IGLESIAS
+                                                        NO EXISTEN IGLESIAS
                                                     </div>
                                                 </div>
                                             </div>
@@ -935,7 +935,7 @@
                                         </tbody>
                                         <div th:if="${clubes == null || clubes.empty}">
                                             <div class="alert alert-danger" role="alert">
-                                                NO EXITEN CLUBES!!!
+                                                NO EXISTEN CLUBES!!!
                                             </div>
                                         </div>
                                     </table>
@@ -1000,7 +1000,7 @@
                                                                 </select>
                                                             </div>
                                                             <div th:if="${iglesias == null || iglesias.empty}">
-                                                                NO EXITEN IGLESIAS
+                                                                NO EXISTEN IGLESIAS
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1020,69 +1020,6 @@
                     </div>
                     <!-- Miembros -->
                     <div th:fragment="members" class="row">
-                        <div class="col-md-6">
-                            <div class="card card-maroon">
-                                <div class="card-header">
-                                    <h3 class="card-title">Nuevo Club</h3>
-                                </div>
-                                <form th:action="@{/clubCreate}" method="POST">
-                                    <!-- Pasando el estaus activo -->
-                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="nombre">Club</label>
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Nombre del club" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="nombrePresidente">Presiente</label>
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Nombre del presidente" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="nombreSecretrio">Secretario</label>
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Nombre del secretario" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="nombreTesorero">Tesorero</label>
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Nombre del tesorero" required>
-                                                </div>
-                                            </div>
-                                            <!--<div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="iglesia">Iglesia</label>
-                                                    <div th:if="${iglesias != null && !iglesias.empty}">
-                                                        <select name="iglesia" id="iglesias.id" class="form-control" required>
-                                                            <div th:each="iglesia : ${iglesias}">
-                                                                <option th:value="${iglesia.id}" th:text="${iglesia.nombre}"></option>
-                                                            </div>
-                                                        </select>
-                                                    </div>
-                                                    <div th:if="${iglesias == null || iglesias.empty}">
-                                                        NO EXITEN IGLESIAS
-                                                    </div>
-                                                </div>
-                                            </div>-->
-                                        </div>
-                                    </div>
-                                    <div class="card-footer text-right">
-                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
-                                            <i class="ion ion-plus"></i> Agregar
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                         <!--<div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
@@ -1117,7 +1054,7 @@
                                         </tbody>
                                         <div th:if="${clubes == null || clubes.empty}">
                                             <div class="alert alert-danger" role="alert">
-                                                NO EXITEN CLUBES!!!
+                                                NO EXISTEN CLUBES!!!
                                             </div>
                                         </div>
                                     </table>
@@ -1182,7 +1119,7 @@
                                                                 </select>
                                                             </div>
                                                             <div th:if="${iglesias == null || iglesias.empty}">
-                                                                NO EXITEN IGLESIAS
+                                                                NO EXISTEN IGLESIAS
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1199,6 +1136,176 @@
                                 </div>
                             </div>
                         </div>-->
+                    </div>
+                    <!-- Inscripciones -->
+                    <div th:fragment="inscriptions" class="row">
+                        <div class="col">
+                            <div class="card card-maroon">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nuevo Miembro</h3>
+                                </div>
+                                <!--/*@thymesVar id="miembro" type="com.iunis.adventclub.domain.Miembro"*/-->
+                                <form th:action="@{/miembroCreate}" method="POST" th:object="${miembro}">
+                                    <!-- Pasando el estaus activo -->
+                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                    <!--<input type="hidden" class="form-control" name="estatus" id="estatus" value="1">-->
+                                    <!--<input type="hidden" class="form-control" th:field="*{estatus.id}" value="1">-->
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <!-- DATOS PERSONALES -->
+                                            <div class="col-12"><h4><strong>Datos Personales</strong></h4></div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datospersonales.nombre">Nombre</label>
+                                                    <input type="text" class="form-control" th:field="*{datospersonales.nombre}"
+                                                           placeholder="Nombre del presidente" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datospersonales.apellidop">Apellido Paterno</label>
+                                                    <input type="text" class="form-control" th:field="*{datospersonales.apellidop}"
+                                                           placeholder="Nombre del presidente" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datospersonales.apellidom">Apellido Materno</label>
+                                                    <input type="text" class="form-control" th:field="*{datospersonales.apellidom}"
+                                                           placeholder="Nombre del presidente" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datospersonales.fechanacimiento">Fecha de nacimiento</label>
+                                                    <input type="date" class="form-control" th:field="*{datospersonales.fechanacimiento}"
+                                                           placeholder="Fecha de Nacimiento" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datospersonales.escolaridad">Grado Escolar</label>
+                                                    <input type="text" class="form-control" th:field="*{datospersonales.escolaridad}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datospersonales.alergia">Alergia</label>
+                                                    <input type="text" class="form-control" th:field="*{datospersonales.alergia}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <!-- DATOS DE UBICACIÓN -->
+                                            <div class="col-12"><h4><strong>Datos de Ubicación</strong></h4></div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="datosubicacion.direccion">Dirección</label>
+                                                    <input type="text" class="form-control" th:field="*{datosubicacion.direccion}"
+                                                           placeholder="Nombre del secretario" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="datosubicacion.telefono">Teléfono</label>
+                                                    <input type="text" class="form-control" th:field="*{datosubicacion.telefono}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <!-- DATOS FAMILIARES -->
+                                            <div class="col-12"><h4><strong>Datos Familiares</strong></h4></div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datosfamiliares.nombrepadre">Nombre del padre</label>
+                                                    <input type="text" class="form-control" th:field="*{datosfamiliares.nombrepadre}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datosfamiliares.apellidopaternopadre">Apellido Paterno</label>
+                                                    <input type="text" class="form-control" th:field="*{datosfamiliares.apellidopaternopadre}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datosfamiliares.apellidomaternopadre">Apellido Materno</label>
+                                                    <input type="text" class="form-control" th:field="*{datosfamiliares.apellidomaternopadre}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="datosfamiliares.nombremadre">Nombre de la Madre</label>
+                                                    <input type="text" class="form-control" th:field="*{datosfamiliares.nombremadre}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="apellidomp">Apellido Paterno</label>
+                                                    <input type="text" class="form-control" th:field="*{datosfamiliares.apellidopaternomadre}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="apellidomm">Apellido Paterno</label>
+                                                    <input type="text" class="form-control" th:field="*{datosfamiliares.apellidomaternomadre}"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12"><h4><strong>Datos Random</strong></h4></div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="iglesia">Club</label>
+                                                    <!--/*@thymesVar id="clubes" type="java.util.List<com.iunis.adventclub.domain.Club>"*/-->
+                                                    <div th:if="${clubes != null && !clubes.empty}">
+                                                        <select th:field="${clubes}" class="form-control" required>
+                                                            <div th:each="club : ${clubes}">
+                                                                <option th:value="${club.id}" th:text="${club.nombre}"></option>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${clubes == null || clubes.empty}">
+                                                        <p class="p-0 m-0">NO EXISTEN CLUBES</p>
+                                                        <small class="text-danger">No puede dar de alta ningun miembro</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="clase">Clase</label>
+                                                    <input type="text" class="form-control"
+                                                           placeholder="Nombre del tesorero" required>
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="iglesia">Iglesia</label>
+                                                    <div th:if="${iglesias != null && !iglesias.empty}">
+                                                        <select name="iglesia" id="iglesias.id" class="form-control" required>
+                                                            <div th:each="iglesia : ${iglesias}">
+                                                                <option th:value="${iglesia.id}" th:text="${iglesia.nombre}"></option>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${iglesias == null || iglesias.empty}">
+                                                        NO EXISTEN IGLESIAS
+                                                    </div>
+                                                </div>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                            <i class="ion ion-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
