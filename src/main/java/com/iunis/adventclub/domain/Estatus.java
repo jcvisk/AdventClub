@@ -31,6 +31,8 @@ public class Estatus implements Serializable {
     private Collection<Club> clubCollection;
     @OneToMany(mappedBy = "estatus")
     private Collection<Miembro> miembroCollection;
+    @OneToMany(mappedBy = "estatus")
+    private Collection<Clase> claseCollection;
 
     public Estatus() {
     }

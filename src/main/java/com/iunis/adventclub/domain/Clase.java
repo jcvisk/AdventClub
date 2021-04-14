@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Data
 @Entity
@@ -20,4 +19,11 @@ public class Clase implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
 
+    @JoinColumn(name = "idclub", referencedColumnName = "id")
+    @ManyToOne(cascade= {CascadeType.ALL}, fetch=FetchType.LAZY)
+    private Club club;
+
+    @JoinColumn(name = "idestatus", referencedColumnName = "id")
+    @ManyToOne(cascade= {CascadeType.ALL}, fetch=FetchType.LAZY)
+    private Estatus estatus;
 }
