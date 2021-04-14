@@ -44,7 +44,7 @@ public class ClubController {
     }
 
     @GetMapping(value = "/clubDelete")
-    public String update(Club club){
+    public String delete(Club club){
         //findClubById busca el objeto por id y lo llena en club
         club = clubService.findClubById(club);
         //cambia el id del estatus a inactivo
@@ -54,7 +54,7 @@ public class ClubController {
     }
 
     @GetMapping(value = "/clubUpdate")
-    public String editar(Club club, Club idClub, Model model){
+    public String update(Club club, Club idClub, Model model){
         //busca el club por medio del id y llena el objeto clubFull
         Club clubFull = clubService.findClubById(idClub);
         model.addAttribute("clubUpdate", clubFull);
