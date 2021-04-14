@@ -1,5 +1,6 @@
 package com.iunis.adventclub.service;
 
+import com.iunis.adventclub.DomainKeys;
 import com.iunis.adventclub.domain.Clase;
 import com.iunis.adventclub.repository.ClaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class ClaseServiceImpl implements ClaseService{
     @Override
     @Transactional
     public void deleteClase(Clase clase) {
+        clase.setEstatus(DomainKeys.ESTATUS_GENERAL_INACTIVO);
         claseRepository.save(clase);
     }
 
