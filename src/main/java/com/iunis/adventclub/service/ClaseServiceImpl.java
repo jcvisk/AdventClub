@@ -41,7 +41,7 @@ public class ClaseServiceImpl implements ClaseService{
 
     @Override
     @Transactional(readOnly = true)
-    public Clase findClaseyId(Clase clase) {
+    public Clase findClaseById(Clase clase) {
         return null;
     }
 

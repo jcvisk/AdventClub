@@ -9,6 +9,6 @@ public interface ClaseService {
     public void createClase(Clase clase);
     public void deleteClase(Clase clase);
     /*public void updateClase(Clase clase);*/
-    public Clase findClaseyId(Clase clase);
+    public Clase findClaseById(Clase clase);
     public List<Clase> findClaseByEstatusActivo();
 }
