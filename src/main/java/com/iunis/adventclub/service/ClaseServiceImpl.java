@@ -42,12 +42,12 @@ public class ClaseServiceImpl implements ClaseService{
     @Override
     @Transactional(readOnly = true)
     public Clase findClaseById(Clase clase) {
-        return null;
+        return claseRepository.findById(clase.getId()).orElse(null);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<Clase> findClaseByEstatusActivo() {
-        return null;
+        return claseRepository.findByEstatus(DomainKeys.ESTATUS_GENERAL_ACTIVO);
     }
 }
