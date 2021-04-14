@@ -331,6 +331,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Nueva Asociación</h3>
                                 </div>
+                                <!--/*@thymesVar id="asociacion" type="com.iunis.adventclub.domain.Asociacion"*/-->
                                 <form th:action="@{/asociacionCreate}" method="POST" th:object="${asociacion}">
                                     <!-- Pasando el estaus activo -->
                                     <input type="hidden" name="estatus" value="1" id="estatus.id">
@@ -339,27 +340,27 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombre">Asociación: </label>
-                                                    <input type="text" name="nombre" th:field="${asociacion.nombre}" placeholder="Nombre de la asociación" class="form-control"  required>
+                                                    <input type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre de la asociación" class="form-control"  required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombrePresidente">Presiente</label>
-                                                    <input type="text" class="form-control" th:field="${asociacion.datosadministracion.precidente}"
+                                                    <input type="text" class="form-control" th:field="*{datosadministracion.precidente}"
                                                            placeholder="Nombre del presidente" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreSecretario">Secretario</label>
-                                                    <input type="text" class="form-control" th:field="${asociacion.datosadministracion.secretario}"
+                                                    <input type="text" class="form-control" th:field="*{datosadministracion.secretario}"
                                                            placeholder="Nombre del secretario" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreTesorero">Tesorero</label>
-                                                    <input type="text" class="form-control" th:field="${asociacion.datosadministracion.tesorero}"
+                                                    <input type="text" class="form-control" th:field="*{datosadministracion.tesorero}"
                                                            placeholder="Nombre del tesorero" required>
                                                 </div>
                                             </div>
@@ -390,6 +391,7 @@
                                             <th>Panel</th>
                                         </tr>
                                         </thead>
+                                        <!--/*@thymesVar id="asociaciones" type="java.util.List<com.iunis.adventclub.domain.Asociacion>"*/-->
                                         <tbody th:if="${asociaciones != null && !asociaciones.empty}">
                                         <tr th:each="asociacion : ${asociaciones}">
                                             <td th:text="${asociacion.id}"></td>
@@ -423,6 +425,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
+                                        <!--/*@thymesVar id="asociacionUpdate" type="com.iunis.adventclub.domain.Asociacion"*/-->
                                         <form th:action="@{/asociacionCreate}" method="POST" th:object="${asociacionUpdate}">
                                             <!-- Pasando el id de la asociacion -->
                                             <input type="hidden" name="id" th:field="${asociacionUpdate.id}">
@@ -434,27 +437,27 @@
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombre">Asociación: </label>
-                                                            <input type="text" name="nombre" th:field="${asociacionUpdate.nombre}" placeholder="Nombre de la asociación" class="form-control"  required>
+                                                            <input type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre de la asociación" class="form-control"  required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombrePresidente">Presiente</label>
-                                                            <input type="text" class="form-control" th:field="${asociacionUpdate.datosadministracion.precidente}"
+                                                            <input type="text" class="form-control" th:field="*{datosadministracion.precidente}"
                                                                    placeholder="Nombre del presidente" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombreSecretario">Secretario</label>
-                                                            <input type="text" class="form-control" th:field="${asociacionUpdate.datosadministracion.secretario}"
+                                                            <input type="text" class="form-control" th:field="*{datosadministracion.secretario}"
                                                                    placeholder="Nombre del secretario" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombreTesorero">Tesorero</label>
-                                                            <input type="text" class="form-control" th:field="${asociacionUpdate.datosadministracion.tesorero}"
+                                                            <input type="text" class="form-control" th:field="*{datosadministracion.tesorero}"
                                                                    placeholder="Nombre del tesorero" required>
                                                         </div>
                                                     </div>
@@ -479,6 +482,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Nuevo Distrito</h3>
                                 </div>
+                                <!--/*@thymesVar id="distrito" type="com.iunis.adventclub.domain.Distrito"*/-->
                                 <form th:action="@{/distritoCreate}" method="POST" th:object="${distrito}">
                                     <!-- Pasando el estaus activo -->
                                     <input type="hidden" name="estatus" value="1" id="estatus.id">
@@ -486,36 +490,36 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
                                                     <label for="nombre">Distrito</label>
-                                                    <input type="text" th:field="${distrito.nombre}" class="form-control"
+                                                    <input type="text" th:field="*{nombre}" class="form-control"
                                                            placeholder="Nombre del distrito" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombrePresidente">Presiente</label>
-                                                    <input type="text" th:field="${distrito.datosadministracion.precidente}"
+                                                    <input type="text" th:field="*{datosadministracion.precidente}"
                                                            class="form-control" placeholder="Nombre del presidente" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreSecretrio">Secretario</label>
-                                                    <input type="text" th:field="${distrito.datosadministracion.secretario}" class="form-control"
+                                                    <input type="text" th:field="*{datosadministracion.secretario}" class="form-control"
                                                         placeholder="Nombre del secretario" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreTesorero">Tesorero</label>
-                                                    <input type="text" th:field="${distrito.datosadministracion.tesorero}" class="form-control"
+                                                    <input type="text" th:field="*{datosadministracion.tesorero}" class="form-control"
                                                         placeholder="Nombre del tesorero" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="asociacion">Asociación</label>
+                                                    <!--/*@thymesVar id="asociaciones" type="java.util.List<com.iunis.adventclub.domain.Asociacion>"*/-->
                                                     <div th:if="${asociaciones != null && !asociaciones.empty}">
                                                         <select name="asociacion" id="asociacion.id" class="form-control" required>
                                                             <div th:each="asociacion : ${asociaciones}">
@@ -556,6 +560,7 @@
                                                 <th>Panel</th>
                                             </tr>
                                         </thead>
+                                        <!--/*@thymesVar id="distritos" type="java.util.List<com.iunis.adventclub.domain.Distrito>"*/-->
                                         <tbody th:if="${distritos != null && !distritos.empty}">
                                             <tr th:each="distrito : ${distritos}">
                                                 <td th:text="${distrito.id}"></td>
@@ -590,9 +595,10 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
+                                        <!--/*@thymesVar id="distritoUpdate" type="com.iunis.adventclub.domain.Distrito"*/-->
                                         <form th:action="@{/distritoCreate}" method="POST" th:object="${distritoUpdate}">
                                             <!-- Pasando el id del distrito -->
-                                            <input type="hidden" name="id" th:field="${distritoUpdate.id}">
+                                            <input type="hidden" name="id" th:field="*{id}">
                                             <!-- Pasando el estaus activo -->
                                             <input type="hidden" name="estatus" value="1" id="estatus.id">
                                             <div class="card-body">
@@ -601,34 +607,35 @@
                                                         <div class="form-group">
                                                             <input type="hidden" name="estatus" value="1" id="estatus.id">
                                                             <label for="nombre">Distrito</label>
-                                                            <input type="text" th:field="${distritoUpdate.nombre}" class="form-control"
+                                                            <input type="text" th:field="*{nombre}" class="form-control"
                                                                    placeholder="Nombre del distrito" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombrePresidente">Presiente</label>
-                                                            <input type="text" th:field="${distritoUpdate.datosadministracion.precidente}"
+                                                            <input type="text" th:field="*{datosadministracion.precidente}"
                                                                    class="form-control" placeholder="Nombre del presidente" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombreSecretrio">Secretario</label>
-                                                            <input type="text" th:field="${distritoUpdate.datosadministracion.secretario}" class="form-control"
+                                                            <input type="text" th:field="*{datosadministracion.secretario}" class="form-control"
                                                                    placeholder="Nombre del secretario" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombreTesorero">Tesorero</label>
-                                                            <input type="text" th:field="${distritoUpdate.datosadministracion.tesorero}" class="form-control"
+                                                            <input type="text" th:field="*{datosadministracion.tesorero}" class="form-control"
                                                                    placeholder="Nombre del tesorero" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="asociacion">Asociación</label>
+                                                            <!--/*@thymesVar id="asociaciones" type="java.util.List<com.iunis.adventclub.domain.Asociacion>"*/-->
                                                             <div th:if="${asociaciones != null && !asociaciones.empty}">
                                                                 <select name="asociacion" id="asociacion.id" class="form-control" required>
                                                                     <div th:each="asociacion : ${asociaciones}">
@@ -662,6 +669,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Nueva Iglesia</h3>
                                 </div>
+                                <!--/*@thymesVar id="iglesia" type="com.iunis.adventclub.domain.Iglesia"*/-->
                                 <form th:action="@{/iglesiaCreate}"  method="POST" th:object="${iglesia}">
                                     <!-- Pasando el estaus activo -->
                                     <input type="hidden" name="estatus" value="1" id="estatus.id">
@@ -670,34 +678,35 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombre">Iglesia</label>
-                                                    <input type="text" class="form-control" th:field="${iglesia.nombre}"
+                                                    <input type="text" class="form-control" th:field="*{nombre}"
                                                         placeholder="Nombre de la iglesia" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombrePresidente">Presiente</label>
-                                                    <input type="text" class="form-control" th:field="${iglesia.datosadministracion.precidente}"
+                                                    <input type="text" class="form-control" th:field="*{datosadministracion.precidente}"
                                                         placeholder="Nombre del presidente" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreSecretrio">Secretario</label>
-                                                    <input type="text" class="form-control" th:field="${iglesia.datosadministracion.secretario}"
+                                                    <input type="text" class="form-control" th:field="*{datosadministracion.secretario}"
                                                         placeholder="Nombre del secretario" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreTesorero">Tesorero</label>
-                                                    <input type="text" class="form-control" th:field="${iglesia.datosadministracion.tesorero}"
+                                                    <input type="text" class="form-control" th:field="*{datosadministracion.tesorero}"
                                                         placeholder="Nombre del tesorero" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="distrito">Distrito</label>
+                                                    <!--/*@thymesVar id="distritos" type="java.util.List<com.iunis.adventclub.domain.Distrito>"*/-->
                                                     <div th:if="${distritos != null && !distritos.empty}">
                                                         <select name="distrito" id="distrito.id" class="form-control" required>
                                                             <div th:each="distrito : ${distritos}">
@@ -738,6 +747,7 @@
                                                 <th>Panel</th>
                                             </tr>
                                         </thead>
+                                        <!--/*@thymesVar id="iglesias" type="java.util.List<com.iunis.adventclub.domain.Iglesia>"*/-->
                                         <tbody th:if="${iglesias != null && !iglesias.empty}">
                                             <tr th:each="iglesia : ${iglesias}">
                                                 <td th:text="${iglesia.id}"></td>
@@ -772,9 +782,10 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
+                                        <!--/*@thymesVar id="iglesiaUpdate" type="com.iunis.adventclub.domain.Iglesia"*/-->
                                         <form th:action="@{/iglesiaCreate}"  method="POST" th:object="${iglesiaUpdate}">
                                             <!-- Pasando el id de la asociacion -->
-                                            <input type="hidden" name="id" th:field="${iglesiaUpdate.id}">
+                                            <input type="hidden" name="id" th:field="*{id}">
                                             <!-- Pasando el estaus activo -->
                                             <input type="hidden" name="estatus" value="1" id="estatus.id">
                                             <div class="card-body">
@@ -782,34 +793,35 @@
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombre">Iglesia</label>
-                                                            <input type="text" class="form-control" th:field="${iglesiaUpdate.nombre}"
+                                                            <input type="text" class="form-control" th:field="*{nombre}"
                                                                    placeholder="Nombre de la iglesia" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombrePresidente">Presiente</label>
-                                                            <input type="text" class="form-control" th:field="${iglesiaUpdate.datosadministracion.precidente}"
+                                                            <input type="text" class="form-control" th:field="*{datosadministracion.precidente}"
                                                                    placeholder="Nombre del presidente" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombreSecretrio">Secretario</label>
-                                                            <input type="text" class="form-control" th:field="${iglesiaUpdate.datosadministracion.secretario}"
+                                                            <input type="text" class="form-control" th:field="*{datosadministracion.secretario}"
                                                                    placeholder="Nombre del secretario" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombreTesorero">Tesorero</label>
-                                                            <input type="text" class="form-control" th:field="${iglesiaUpdate.datosadministracion.tesorero}"
+                                                            <input type="text" class="form-control" th:field="*{datosadministracion.tesorero}"
                                                                    placeholder="Nombre del tesorero" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="distrito">Distrito</label>
+                                                            <!--/*@thymesVar id="distritos" type="java.util.List<com.iunis.adventclub.domain.Distrito>"*/-->
                                                             <div th:if="${distritos != null && !distritos.empty}">
                                                                 <select name="distrito" id="distrito.id" class="form-control" required>
                                                                     <div th:each="distrito : ${distritos}">
@@ -843,6 +855,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Nuevo Club</h3>
                                 </div>
+                                <!--/*@thymesVar id="club" type="com.iunis.adventclub.domain.Club"*/-->
                                 <form th:action="@{/clubCreate}" method="POST" th:object="${club}">
                                     <!-- Pasando el estaus activo -->
                                     <input type="hidden" name="estatus" value="1" id="estatus.id">
@@ -851,34 +864,35 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombre">Club</label>
-                                                    <input type="text" class="form-control" th:field="${club.nombre}"
+                                                    <input type="text" class="form-control" th:field="*{nombre}"
                                                         placeholder="Nombre del club" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombrePresidente">Presiente</label>
-                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.precidente}"
+                                                    <input type="text" class="form-control" th:field="*{datosadministracion.precidente}"
                                                         placeholder="Nombre del presidente" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreSecretrio">Secretario</label>
-                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.secretario}"
+                                                    <input type="text" class="form-control" th:field="*{datosadministracion.secretario}"
                                                         placeholder="Nombre del secretario" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreTesorero">Tesorero</label>
-                                                    <input type="text" class="form-control" th:field="${club.datosadministracion.tesorero}"
+                                                    <input type="text" class="form-control" th:field="*{datosadministracion.tesorero}"
                                                         placeholder="Nombre del tesorero" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="iglesia">Iglesia</label>
+                                                    <!--/*@thymesVar id="iglesias" type="java.util.List<com.iunis.adventclub.domain.Iglesia>"*/-->
                                                     <div th:if="${iglesias != null && !iglesias.empty}">
                                                         <select name="iglesia" id="iglesias.id" class="form-control" required>
                                                             <div th:each="iglesia : ${iglesias}">
@@ -919,6 +933,7 @@
                                                 <th>Panel</th>
                                             </tr>
                                         </thead>
+                                        <!--/*@thymesVar id="clubes" type="java.util.List<com.iunis.adventclub.domain.Club>"*/-->
                                         <tbody th:if="${clubes != null && !clubes.empty}">
                                         <tr th:each="club : ${clubes}">
                                             <td th:text="${club.id}"></td>
