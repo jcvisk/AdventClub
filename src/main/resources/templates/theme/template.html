@@ -1322,6 +1322,144 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Clases -->
+                    <div th:fragment="class" class="row">
+                        <div class="col-md-6">
+                            <div class="card card-maroon">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nueva Clase</h3>
+                                </div>
+                                <!--/*@thymesVar id="clase" type="com.iunis.adventclub.domain.Clase"*/-->
+                                <form th:action="@{/claseCreate}" method="POST" th:object="${clase}">
+                                    <!-- Pasando el estaus activo -->
+                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombre">Nombre de la clase</label>
+                                                    <input type="text" class="form-control" th:field="*{descripcion}"
+                                                           placeholder="Nombre del club" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="iglesia">Clubes</label>
+                                                    <!--/*@thymesVar id="clubes" type="java.util.List<com.iunis.adventclub.domain.Club>"*/-->
+                                                    <div th:if="${clubes != null && !clubes.empty}">
+                                                        <select name="club" id="club.id" class="form-control" required>
+                                                            <div th:each="club : ${clubes}">
+                                                                <option th:value="${club.id}" th:text="${club.nombre}"></option>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${clubes == null || clubes.empty}">
+                                                        NO EXISTEN CLUBES
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                            <i class="ion ion-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Clases</h3>
+                                </div>
+                                <div class="card-body p-0">
+                                    <table class="table table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre de la Clase</th>
+                                            <th>Club</th>
+                                        </tr>
+                                        </thead>
+                                        <!--/*@thymesVar id="clases" type="java.util.List<com.iunis.adventclub.domain.Clase>"*/-->
+                                        <tbody th:if="${clases != null && !clases.empty}">
+                                        <tr th:each="clase : ${clases}">
+                                            <td th:text="${clase.id}"></td>
+                                            <td th:text="${clase.descripcion}"></td>
+                                            <td th:text="${clase.club.nombre}"></td>
+                                            <td>
+                                                <a class="text-primary" th:href="@{/claseUpdate(id=${clase.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
+                                                <a class="text-danger" th:href="@{/claseDelete(id=${clase.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <div th:if="${clases == null || clases.empty}">
+                                            <div class="alert alert-danger" role="alert">
+                                                NO EXISTEN CLASES!!!
+                                            </div>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal de edicion -->
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateModalLabel">Editar Clase</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!--/*@thymesVar id="claseUpdate" type="com.iunis.adventclub.domain.Clase"*/-->
+                                        <form th:action="@{/claseCreate}" method="POST" th:object="${claseUpdate}">
+                                            <!-- Pasando el id del club -->
+                                            <input type="hidden" name="id" th:field="*{id}">
+                                            <!-- Pasando el estaus activo -->
+                                            <input type="hidden" name="estatus" value="1" id="estatus.id">
+
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombre">Nombre de la Clase</label>
+                                                            <input type="text" class="form-control" th:field="*{descripcion}"
+                                                                   placeholder="Nombre del club" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="iglesia">Clubes</label>
+                                                            <!--/*@thymesVar id="clubes" type="java.util.List<com.iunis.adventclub.domain.Club>"*/-->
+                                                            <div th:if="${clubes != null && !clubes.empty}">
+                                                                <select name="club" id="club.id" class="form-control" required>
+                                                                    <div th:each="club : ${clubes}">
+                                                                        <option th:value="${club.id}" th:text="${club.nombre}"></option>
+                                                                    </div>
+                                                                </select>
+                                                            </div>
+                                                            <div th:if="${clubes == null || clubes.empty}">
+                                                                NO EXISTEN CLUBES
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-right">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                                    <i class="fas fa-save"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <!-- /Main content -->
