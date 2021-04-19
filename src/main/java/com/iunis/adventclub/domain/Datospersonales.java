@@ -1,6 +1,7 @@
 package com.iunis.adventclub.domain;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,6 +33,8 @@ public class Datospersonales implements Serializable {
     @Column(name = "escolaridad")
     private String escolaridad;
 
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "fechanacimiento")
     private Date fechanacimiento;
 
