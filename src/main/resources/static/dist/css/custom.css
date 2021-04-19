@@ -1,4 +1,10 @@
+body{
+    background-color: #f7f7f7 !important;
+}
 .btn-maroon{
     background-color: #D81B60;
     color: white;
+}
+.navbar-light{
+    background-color: transparent !important;
 }
