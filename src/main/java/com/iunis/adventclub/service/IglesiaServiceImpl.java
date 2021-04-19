@@ -51,4 +51,10 @@ public class IglesiaServiceImpl implements IglesiaService{
     public List<Iglesia> findIglesiaByEstatusActivo() {
         return iglesiaRepository.findByEstatus(DomainKeys.ESTATUS_GENERAL_ACTIVO);
     }
+
+    @Override
+    public List<Iglesia> findIglesiasByIdDistrito(Long idDistrito) {
+        return iglesiaRepository.findIglesiasByIdDistrito(idDistrito);
+    }
+
 }

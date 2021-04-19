@@ -51,4 +51,10 @@ public class DistritoServiceImpl implements DistritoService {
     public List<Distrito> findDistritoByEstatusActivo() {
         return distritoRepository.findByEstatus(DomainKeys.ESTATUS_GENERAL_ACTIVO);
     }
+
+    @Override
+    public List<Distrito> findDistritosByIdAsociacion(Long idAsociacion) {
+        return distritoRepository.findDistritosByIdAsociacion(idAsociacion);
+    }
+
 }

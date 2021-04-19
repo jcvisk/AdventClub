@@ -52,4 +52,10 @@ public class ClubServiceImpl implements ClubService{
     public List<Club> findClubByEstatusActivo() {
         return clubRepository.findByEstatus(DomainKeys.ESTATUS_GENERAL_ACTIVO);
     }
+
+    @Override
+    public List<Club> findClubesByIdIglesia(Long idIglesia) {
+        return clubRepository.findClubesByIdIglesia(idIglesia);
+    }
+
 }

@@ -50,4 +50,10 @@ public class ClaseServiceImpl implements ClaseService{
     public List<Clase> findClaseByEstatusActivo() {
         return claseRepository.findByEstatus(DomainKeys.ESTATUS_GENERAL_ACTIVO);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Clase> findClasesByIdClub(long idClub){
+        return claseRepository.findClasesByIdClub(idClub);
+    }
 }
