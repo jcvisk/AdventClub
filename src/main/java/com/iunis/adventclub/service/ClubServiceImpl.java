@@ -54,8 +54,15 @@ public class ClubServiceImpl implements ClubService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Club> findClubesByIdIglesia(Long idIglesia) {
         return clubRepository.findClubesByIdIglesia(idIglesia);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Integer countActivos() {
+        return clubRepository.countClubesActivos();
     }
 
 }

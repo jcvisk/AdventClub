@@ -52,4 +52,10 @@ public class MiembroServiceImpl implements MiembroService{
     public List<Miembro> findMiembroByEstatusActivo() {
         return miembroRepository.findByEstatus(DomainKeys.ESTATUS_GENERAL_ACTIVO);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Integer countActivos() {
+        return miembroRepository.countMiembrosActivos();
+    }
 }

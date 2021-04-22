@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdventClub | Adminitración</title>
+    <style>
+        .border-top {
+        border-top: 1px solid #dee2e6 !important;
+        }
+
+        .border-bottom {
+        border-bottom: 1px solid #dee2e6 !important;
+        }
+
+        .mt-5,
+        .my-5 {
+        margin-top: 3rem !important;
+        }
+
+        .mb-5,
+        .my-5 {
+        margin-bottom: 3rem !important;
+        }
+
+        .text-uppercase {
+        text-transform: uppercase !important;
+        }
+
+        .pdf-template p{
+            font-size: 1rem;
+        }
+
+        .pdf-template .border-bottom{
+            border-bottom: 1px solid #000000 !important;
+        }
+
+        .pdf-template .border-top{
+            border-top: 1px solid #000000 !important;
+        }
+
+        .text-bold{
+            font-weight: bold !important;
+        }
+
+        .contenido1{
+            width: 50%;
+            float: left;
+        }
+        .contenido2{
+            width: 50%;
+            float: right;
+        }
+        .p{
+            padding: 5px !important;
+        }
+    </style>
+</head>
+
+<main class="pdf-template">
+    <div class="container">
+        <header class="text-center mb-5">
+            <h2 class="text-uppercase" style="color: #914405; font-weight: bold">Hoja de inscripción al club</h2>
+        </header>
+        <p>Me gustaría unirme al club: <span th:text="${miembro.club.nombre}" class="border-bottom"></span></p><br>
+        <p>Asistiré a las reuniones del club, a los campamentos, a las excursiones, a la aventura
+            misionera y otras actividades. Estoy de acuerdo en guiarme por los reglamentos del club y
+            el Voto y la Ley de los Aventureros.</p>
+
+        <section>
+            <div class="contenido1">
+                <div class="p">
+                    <div>
+                        <p class="border-bottom"><span class="text-bold">Nombre:
+                    </span><span th:text="${miembro.datospersonales.nombre+' '+miembro.datospersonales.apellidop+' '+miembro.datospersonales.apellidom}"></span></p>
+                    </div>
+                    <div>
+                        <p class="border-bottom"><span class="text-bold">Dirección: </span><span th:text="${miembro.datosubicacion.direccion}"></span></p>
+                    </div>
+                    <div>
+                        <p class="border-bottom"><span class="text-bold">Grado Escolar: </span><span th:text="${miembro.datospersonales.escolaridad}"></span></p>
+                    </div>
+                    <div>
+                        <p class="border-bottom"><span class="text-bold">Padre: </span>
+                            <span th:text="${miembro.datosfamiliares.nombrepadre+' '+miembro.datosfamiliares.apellidopaternopadre+' '+miembro.datosfamiliares.apellidomaternopadre}"></span></p>
+                    </div>
+                    <div>
+                        <p class="border-bottom"><span class="text-bold">Distrito: </span><span th:text="${miembro.club.iglesia.distrito.nombre}"></span></p>
+                    </div>
+                    <div>
+                        <p class="border-bottom"><span class="text-bold ">Clase que Cursará: </span>
+                            <span th:text="${miembro.clase.descripcion}"></span></p>
+                    </div>
+                    <!-- -->
+                    <div class="">
+                        <header class="text-center">
+                            <h3 class="text-bold text-uppercase">Voto</h3>
+                        </header>
+                        <p>Por a mor a Jesús siempre haré lo
+                            mejor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="contenido2">
+                <div class="p">
+                    <div>
+                        <p class="border-bottom"><span class="text-bold">Edad: </span><span th:text="${miembro.datospersonales.edad}"></span></p>
+                    </div>
+                    <div>
+                        <p class="border-bottom"><span class="text-bold">Teléfono: </span><span th:text="${miembro.datosubicacion.telefono}"></span></p>
+                    </div>
+                    <div>
+                        <p class="border-bottom"><span class="text-bold">Fecha de Nacimiento: </span><span th:text="${miembro.datospersonales.fechanacimiento}"></span></p>
+                    </div>
+                    <div>
+                        <p class="border-bottom"><span class="text-bold ">Madre: </span>
+                            <span th:text="${miembro.datosfamiliares.nombremadre+' '+miembro.datosfamiliares.apellidopaternomadre+' '+miembro.datosfamiliares.apellidomaternomadre}"></span></p>
+                    </div>
+                    <div>
+                        <p class="border-bottom"><span class="text-bold ">Iglesia: </span><span th:text="${miembro.club.iglesia.nombre}"></span></p>
+                    </div>
+                    <!--  -->
+                    <div style="margin-top: 50px">
+                        <header class="text-center">
+                            <h3 class="text-bold text-uppercase">Ley</h3>
+                        </header>
+                        <p>
+                            La ley de los Aventureros me manda:<br>
+                            Ser obediente<br>
+                            Ser puro<br>
+                            Ser leal<br>
+                            Ser bondadoso<br>
+                            Ser respetuoso<br>
+                            Ser atento<br>
+                            Ser útil<br>
+                            Ser alegre<br>
+                            Ser considerado<br>
+                            Ser reverente<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div style="margin-top: 675px !important;">
+            <p>Asistiré a las reuniones, actividades, excursiones, y otras actividades. Vestiré con orgullo mi
+                uniforme de Aventurero y obedeceré los reglamentos del club. Seré alegré, honesto, útil y
+                cortés.
+            </p>
+        </div>
+        <div class="row mt-5 text-center">
+            <p class="border-top" style="width: 33%">Firma del Interesado</p>
+        </div>
+    </div>
+</main>
+</body>
+</html>

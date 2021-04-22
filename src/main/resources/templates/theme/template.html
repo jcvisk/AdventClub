@@ -85,7 +85,8 @@
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
                                     Asociaciones
-                                    <span class="badge badge-info right">2</span>
+                                    <!--/*@thymesVar id="countAsociaicones" type="com.iunis.adventclub.domain.Asociacion"*/-->
+                                    <span class="badge badge-info right"  th:text="${countAsociaicones}"></span>
                                 </p>
                             </a>
                         </li>
@@ -94,6 +95,8 @@
                                 <i class="nav-icon fas fa-globe-americas"></i>
                                 <p>
                                     Distritos
+                                    <!--/*@thymesVar id="countDistritos" type="com.iunis.adventclub.domain.Distrito"*/-->
+                                    <span class="badge badge-info right"  th:text="${countDistritos}"></span>
                                 </p>
                             </a>
                         </li>
@@ -102,6 +105,8 @@
                                 <i class="nav-icon fas fa-church"></i>
                                 <p>
                                     Iglesias
+                                    <!--/*@thymesVar id="countIglesias" type="com.iunis.adventclub.domain.Iglesia"*/-->
+                                    <span class="badge badge-info right"  th:text="${countIglesias}"></span>
                                 </p>
                             </a>
                         </li>
@@ -110,11 +115,22 @@
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Clubes
-                                    <span class="badge badge-info right">2</span>
+                                    <!--/*@thymesVar id="countClubes" type="com.iunis.adventclub.domain.Club"*/-->
+                                    <span class="badge badge-info right"  th:text="${countClubes}"></span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a th:href="@{/claseDisplay}" class="nav-link">
+                                <i class="nav-icon fas fa-clipboard"></i>
+                                <p>
+                                    Clases
+                                    <!--/*@thymesVar id="countClases" type="com.iunis.adventclub.domain.Clase"*/-->
+                                    <span class="badge badge-info right"  th:text="${countClases}"></span>
+                                </p>
+                            </a>
+                        </li>
+                        <!--<li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
@@ -143,17 +159,19 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a th:href="@{/miembroDisplay}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Miembros
+                                    <!--/*@thymesVar id="countMiembros" type="com.iunis.adventclub.domain.Miembro"*/-->
+                                    <span class="badge badge-info right"  th:text="${countMiembros}"></span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a th:href="@{/}" class="nav-link">
+                            <a th:href="@{/periodoDisplay}" class="nav-link">
                                 <i class="nav-icon ion ion-android-calendar"></i>
                                 <p>
                                     Periodo
@@ -208,7 +226,8 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>150</h3>
+                                    <!--/*@thymesVar id="countAsociaicones" type="com.iunis.adventclub.domain.Asociacion"*/-->
+                                    <h3 th:text="${countAsociaicones}"></h3>
 
                                     <p>Asociaciones</p>
                                 </div>
@@ -223,7 +242,8 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>53</h3>
+                                    <!--/*@thymesVar id="countDistritos" type="com.iunis.adventclub.domain.Distrito"*/-->
+                                    <h3 th:text="${countDistritos}"></h3>
 
                                     <p>Distritos</p>
                                 </div>
@@ -237,7 +257,8 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>44</h3>
+                                    <!--/*@thymesVar id="countIglesias" type="com.iunis.adventclub.domain.Iglesia"*/-->
+                                    <h3 th:text="${countIglesias}">44</h3>
 
                                     <p>Iglesias</p>
                                 </div>
@@ -252,7 +273,8 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-maroon">
                                 <div class="inner">
-                                    <h3>65</h3>
+                                    <!--/*@thymesVar id="countClubes" type="com.iunis.adventclub.domain.Club"*/-->
+                                    <h3 th:text="${countClubes}"></h3>
 
                                     <p>Clubes</p>
                                 </div>
@@ -265,9 +287,26 @@
                         </div>
 
                         <div class="col-lg-3 col-6">
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <!--/*@thymesVar id="countClases" type="com.iunis.adventclub.domain.Clase"*/-->
+                                    <h3 th:text="${countClases}"></h3>
+
+                                    <p>Clases</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-clipboard"></i>
+                                </div>
+                                <a th:href="@{/claseDisplay}" class="small-box-footer">Ver Más <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
                             <div class="small-box bg-orange">
                                 <div class="inner">
-                                    <h3>65</h3>
+                                    <!--/*@thymesVar id="countMiembros" type="com.iunis.adventclub.domain.Miembro"*/-->
+                                    <h3 th:text="${countMiembros}"></h3>
 
                                     <p>Miembros</p>
                                 </div>
@@ -282,7 +321,7 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-teal">
                                 <div class="inner">
-                                    <h3>65</h3>
+                                    <h3>0</h3>
 
                                     <p>Periodo</p>
                                 </div>
@@ -297,7 +336,7 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-pink">
                                 <div class="inner">
-                                    <h3>65</h3>
+                                    <h3>0</h3>
 
                                     <p>Usuarios</p>
                                 </div>
@@ -312,7 +351,7 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-purple">
                                 <div class="inner">
-                                    <h3>65</h3>
+                                    <h3>0</h3>
 
                                     <p>Reportes</p>
                                 </div>
@@ -1035,10 +1074,11 @@
                     </div>
                     <!-- Miembros -->
                     <div th:fragment="members" class="row">
-                        <!--<div class="col-md-6">
+                        <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Clubes</h3>
+                                <div class="card-header row">
+                                    <div class="col-6"><h3 class="card-title">Miembros</h3></div>
+                                    <div class="col-6 text-right"><a type="button" class="btn btn-info" th:href="@{/inscripcionDisplay}">Inscribir Manualmente</a></div>
                                 </div>
                                 <div class="card-body p-0">
                                     <table class="table table-sm">
@@ -1046,39 +1086,47 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nombre</th>
-                                            <th>Presiente</th>
-                                            <th>Secretario</th>
-                                            <th>Tesorero</th>
-                                            <th>Iglesia</th>
+                                            <th>Edad</th>
+                                            <th>Dirección</th>
+                                            <th>Teléfono</th>
+                                            <th>Padre</th>
+                                            <th>Madre</th>
+                                            <th>Club</th>
+                                            <th>Clase</th>
                                             <th>Panel</th>
                                         </tr>
                                         </thead>
-                                        <tbody th:if="${clubes != null && !clubes.empty}">
-                                        <tr th:each="club : ${clubes}">
-                                            <td th:text="${club.id}"></td>
-                                            <td th:text="${club.nombre}"></td>
-                                            <td th:text="${club.datosadministracion.precidente}"></td>
-                                            <td th:text="${club.datosadministracion.secretario}"></td>
-                                            <td th:text="${club.datosadministracion.tesorero}"></td>
-                                            <td th:text="${club.iglesia.nombre}"></td>
+                                        <!--/*@thymesVar id="miembros" type="java.util.List<com.iunis.adventclub.domain.Miembro>"*/-->
+                                        <tbody th:if="${miembros != null && !miembros.empty}">
+                                        <tr th:each="miembro : ${miembros}">
+                                            <td th:text="${miembro.id}"></td>
+                                            <td th:text="${miembro.datospersonales.nombre}"></td>
+                                            <td th:text="${miembro.datospersonales.edad}"></td>
+                                            <td th:text="${miembro.datosubicacion.direccion}"></td>
+                                            <td th:text="${miembro.datosubicacion.telefono}"></td>
+                                            <td th:text="${miembro.datosfamiliares.nombrepadre}"></td>
+                                            <td th:text="${miembro.datosfamiliares.nombremadre}"></td>
+                                            <td th:text="${miembro.club.nombre}"></td>
+                                            <td th:text="${miembro.clase.descripcion}"></td>
                                             <td>
-                                                <a class="text-primary" th:href="@{/clubUpdate(id=${club.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
-                                                <a class="text-danger" th:href="@{/clubDelete(id=${club.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
+                                                <a class="text-success" th:href="@{/getPDF(id=${miembro.id})}" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                                <a class="text-primary" th:href="@{/miembroUpdate(id=${miembro.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
+                                                <a class="text-danger" th:href="@{/miembroDelete(id=${miembro.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                         </tbody>
-                                        <div th:if="${clubes == null || clubes.empty}">
+                                        <div th:if="${miembros == null || miembros.empty}">
                                             <div class="alert alert-danger" role="alert">
-                                                NO EXISTEN CLUBES!!!
+                                                NO EXISTEN MIEMBROS INSCRITOS
                                             </div>
                                         </div>
                                     </table>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
                         <!-- Modal de edicion -->
-                        <!--<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="updateModalLabel">Editar Club</h5>
@@ -1087,54 +1135,141 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form th:action="@{/clubCreate}" method="POST" th:object="${clubUpdate}">
-                                            &lt;!&ndash; Pasando el id del club &ndash;&gt;
-                                            <input type="hidden" name="id" th:field="${clubUpdate.id}">
-                                            &lt;!&ndash; Pasando el estaus activo &ndash;&gt;
-                                            <input type="hidden" name="estatus" value="1" id="estatus.id">
-
+                                        <!--/*@thymesVar id="miembroUpdate" type="com.iunis.adventclub.domain.Miembro"*/-->
+                                        <form th:action="@{/inscripcionDisplay}" method="POST" th:object="${miembroUpdate}">
+                                            <!-- Pasando el id del miembro -->
+                                            <input type="hidden" name="id" th:field="*{id}">
+                                            <!-- Pasando el estaus activo -->
+                                            <input type="hidden" name="estatus" th:field="*{estatus.id}">
+                                            <!-- Pasando el id de la club-->
+                                            <!--/*@thymesVar id="clubSelect" type="java.lang.Long"*/-->
+                                            <input type="hidden" name="club" th:value="${clubSelect}">
                                             <div class="card-body">
                                                 <div class="row">
+                                                    <!-- DATOS PERSONALES -->
+                                                    <div class="col-12"><h4><strong>Datos Personales</strong></h4></div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="datospersonales.nombre">Nombre</label>
+                                                            <input type="text" class="form-control" th:field="*{datospersonales.nombre}"
+                                                                   placeholder="Nombre" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="datospersonales.apellidop">Apellido Paterno</label>
+                                                            <input type="text" class="form-control" th:field="*{datospersonales.apellidop}"
+                                                                   placeholder="Apellido Paterno" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="datospersonales.apellidom">Apellido Materno</label>
+                                                            <input type="text" class="form-control" th:field="*{datospersonales.apellidom}"
+                                                                   placeholder="Apellido Materno" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="datospersonales.fechanacimiento">Fecha de nacimiento</label>
+                                                            <input type="date" class="form-control" th:field="*{datospersonales.fechanacimiento}"
+                                                                   placeholder="Fecha de Nacimiento" pattern="yyyy-MM-dd" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="datospersonales.escolaridad">Grado Escolar</label>
+                                                            <input type="text" class="form-control" th:field="*{datospersonales.escolaridad}"
+                                                                   placeholder="Grado Escolar" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="datospersonales.alergia">Alergia</label>
+                                                            <input type="text" class="form-control" th:field="*{datospersonales.alergia}"
+                                                                   placeholder="Alergia" required>
+                                                        </div>
+                                                    </div>
+                                                    <!-- DATOS DE UBICACIÓN -->
+                                                    <div class="col-12"><h4><strong>Datos de Ubicación</strong></h4></div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="nombre">Club</label>
-                                                            <input type="text" class="form-control" th:field="${clubUpdate.nombre}"
-                                                                   placeholder="Nombre del club" required>
+                                                            <label for="datosubicacion.direccion">Dirección</label>
+                                                            <input type="text" class="form-control" th:field="*{datosubicacion.direccion}"
+                                                                   placeholder="Dirección" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="nombrePresidente">Presiente</label>
-                                                            <input type="text" class="form-control" th:field="${clubUpdate.datosadministracion.precidente}"
-                                                                   placeholder="Nombre del presidente" required>
+                                                            <label for="datosubicacion.telefono">Teléfono</label>
+                                                            <input type="text" class="form-control" th:field="*{datosubicacion.telefono}"
+                                                                   placeholder="Teléfono" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
+                                                    <!-- DATOS FAMILIARES -->
+                                                    <div class="col-12"><h4><strong>Datos Familiares</strong></h4></div>
+                                                    <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <label for="nombreSecretrio">Secretario</label>
-                                                            <input type="text" class="form-control" th:field="${clubUpdate.datosadministracion.secretario}"
-                                                                   placeholder="Nombre del secretario" required>
+                                                            <label for="datosfamiliares.nombrepadre">Nombre del padre</label>
+                                                            <input type="text" class="form-control" th:field="*{datosfamiliares.nombrepadre}"
+                                                                   placeholder="Nombre del padre" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <label for="nombreTesorero">Tesorero</label>
-                                                            <input type="text" class="form-control" th:field="${clubUpdate.datosadministracion.tesorero}"
-                                                                   placeholder="Nombre del tesorero" required>
+                                                            <label for="datosfamiliares.apellidopaternopadre">Apellido Paterno</label>
+                                                            <input type="text" class="form-control" th:field="*{datosfamiliares.apellidopaternopadre}"
+                                                                   placeholder="Apellido Paterno" required>
                                                         </div>
                                                     </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="datosfamiliares.apellidomaternopadre">Apellido Materno</label>
+                                                            <input type="text" class="form-control" th:field="*{datosfamiliares.apellidomaternopadre}"
+                                                                   placeholder="Apellido Materno" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="datosfamiliares.nombremadre">Nombre de la Madre</label>
+                                                            <input type="text" class="form-control" th:field="*{datosfamiliares.nombremadre}"
+                                                                   placeholder="Nombre de la Madre" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="apellidomp">Apellido Paterno</label>
+                                                            <input type="text" class="form-control" th:field="*{datosfamiliares.apellidopaternomadre}"
+                                                                   placeholder="Apellido Paterno" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="apellidomm">Apellido Materno</label>
+                                                            <input type="text" class="form-control" th:field="*{datosfamiliares.apellidomaternomadre}"
+                                                                   placeholder="Apellido Materno" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12"><h4><strong>Datos de Inscripción</strong></h4></div>
+
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="iglesia">Iglesia</label>
-                                                            <div th:if="${iglesias != null && !iglesias.empty}">
-                                                                <select name="iglesia" id="iglesias.id" class="form-control" required>
-                                                                    <div th:each="iglesia : ${iglesias}">
-                                                                        <option th:value="${iglesia.id}" th:text="${iglesia.nombre}"></option>
+                                                            <label for="clase">Clase</label>
+                                                            <!--/*@thymesVar id="clases" type="java.util.List<com.iunis.adventclub.domain.Clase>"*/-->
+                                                            <div th:if="${clases != null && !clases.empty}">
+                                                                <select name="clase" class="form-control" required>
+                                                                    <div th:each="clase : ${clases}">
+                                                                        <div th:if="${clase.id == claseSelected}">
+                                                                            <option th:value="${clase.id}" th:text="${clase.descripcion}" selected></option>
+                                                                        </div>
+                                                                        <div th:if="${clase.id != claseSelected}">
+                                                                            <option th:value="${clase.id}" th:text="${clase.descripcion}"></option>
+                                                                        </div>
                                                                     </div>
                                                                 </select>
                                                             </div>
-                                                            <div th:if="${iglesias == null || iglesias.empty}">
-                                                                NO EXISTEN IGLESIAS
+                                                            <div th:if="${clases == null || clases.empty}">
+                                                                <small class="text-danger">No existen clases</small>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1142,7 +1277,7 @@
                                             </div>
                                             <div class="card-footer text-right">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                                <button type="submit" class="btn btn-maroon" onclick="return validateSaved()" name="action" value="save">
                                                     <i class="fas fa-save"></i> Guardar
                                                 </button>
                                             </div>
@@ -1150,21 +1285,19 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
                     <!-- Inscripciones -->
                     <div th:fragment="inscriptions" class="row">
-                        <div class="col">
+                        <div class="col-12">
                             <div class="card card-maroon">
                                 <div class="card-header">
                                     <h3 class="card-title">Nuevo Miembro</h3>
                                 </div>
                                 <!--/*@thymesVar id="miembro" type="com.iunis.adventclub.domain.Miembro"*/-->
-                                <form th:action="@{/miembroCreate}" method="POST" th:object="${miembro}">
+                                <form th:action="@{/inscripcionDisplay}" method="POST" th:object="${miembro}">
                                     <!-- Pasando el estaus activo -->
                                     <input type="hidden" name="estatus" value="1" id="estatus.id">
-                                    <!--<input type="hidden" class="form-control" name="estatus" id="estatus" value="1">-->
-                                    <!--<input type="hidden" class="form-control" th:field="*{estatus.id}" value="1">-->
                                     <div class="card-body">
                                         <div class="row">
                                             <!-- DATOS PERSONALES -->
@@ -1173,42 +1306,42 @@
                                                 <div class="form-group">
                                                     <label for="datospersonales.nombre">Nombre</label>
                                                     <input type="text" class="form-control" th:field="*{datospersonales.nombre}"
-                                                           placeholder="Nombre del presidente" required>
+                                                           placeholder="Nombre" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="datospersonales.apellidop">Apellido Paterno</label>
                                                     <input type="text" class="form-control" th:field="*{datospersonales.apellidop}"
-                                                           placeholder="Nombre del presidente" required>
+                                                           placeholder="Apellido Paterno" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="datospersonales.apellidom">Apellido Materno</label>
                                                     <input type="text" class="form-control" th:field="*{datospersonales.apellidom}"
-                                                           placeholder="Nombre del presidente" required>
+                                                           placeholder="Apellido Materno" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="datospersonales.fechanacimiento">Fecha de nacimiento</label>
                                                     <input type="date" class="form-control" th:field="*{datospersonales.fechanacimiento}"
-                                                           placeholder="Fecha de Nacimiento" required>
+                                                           placeholder="Fecha de Nacimiento" pattern="yyyy-MM-dd" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="datospersonales.escolaridad">Grado Escolar</label>
                                                     <input type="text" class="form-control" th:field="*{datospersonales.escolaridad}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Grado Escolar" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="datospersonales.alergia">Alergia</label>
                                                     <input type="text" class="form-control" th:field="*{datospersonales.alergia}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Alergia" required>
                                                 </div>
                                             </div>
                                             <!-- DATOS DE UBICACIÓN -->
@@ -1217,14 +1350,14 @@
                                                 <div class="form-group">
                                                     <label for="datosubicacion.direccion">Dirección</label>
                                                     <input type="text" class="form-control" th:field="*{datosubicacion.direccion}"
-                                                           placeholder="Nombre del secretario" required>
+                                                           placeholder="Dirección" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="datosubicacion.telefono">Teléfono</label>
                                                     <input type="text" class="form-control" th:field="*{datosubicacion.telefono}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Teléfono" required>
                                                 </div>
                                             </div>
                                             <!-- DATOS FAMILIARES -->
@@ -1233,88 +1366,156 @@
                                                 <div class="form-group">
                                                     <label for="datosfamiliares.nombrepadre">Nombre del padre</label>
                                                     <input type="text" class="form-control" th:field="*{datosfamiliares.nombrepadre}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Nombre del padre" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="datosfamiliares.apellidopaternopadre">Apellido Paterno</label>
                                                     <input type="text" class="form-control" th:field="*{datosfamiliares.apellidopaternopadre}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Apellido Paterno" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="datosfamiliares.apellidomaternopadre">Apellido Materno</label>
                                                     <input type="text" class="form-control" th:field="*{datosfamiliares.apellidomaternopadre}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Apellido Materno" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="datosfamiliares.nombremadre">Nombre de la Madre</label>
                                                     <input type="text" class="form-control" th:field="*{datosfamiliares.nombremadre}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Nombre de la Madre" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="apellidomp">Apellido Paterno</label>
                                                     <input type="text" class="form-control" th:field="*{datosfamiliares.apellidopaternomadre}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Apellido Paterno" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <label for="apellidomm">Apellido Paterno</label>
+                                                    <label for="apellidomm">Apellido Materno</label>
                                                     <input type="text" class="form-control" th:field="*{datosfamiliares.apellidomaternomadre}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Apellido Materno" required>
                                                 </div>
                                             </div>
-                                            <div class="col-12"><h4><strong>Datos Random</strong></h4></div>
+                                            <div class="col-12"><h4><strong>Datos de Inscripción</strong></h4></div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label for="iglesia">Club</label>
+                                                    <label for="asociacion">Asociación</label>
+                                                    <!--/*@thymesVar id="asociaciones" type="java.util.List<com.iunis.adventclub.domain.Asociacion>"*/-->
+                                                    <div th:if="${asociaciones != null && !asociaciones.empty}">
+                                                        <select name="asociacion" class="form-control" required onchange='this.form.submit();'>
+                                                            <option value="0">Seleccione una Asociación</option>
+                                                            <div th:each="asociacion : ${asociaciones}">
+                                                                <div th:if="${asociacion.id == asociacionSelected}">
+                                                                    <option th:value="${asociacion.id}" th:text="${asociacion.nombre}" selected></option>
+                                                                </div>
+                                                                <div th:if="${asociacion.id != asociacionSelected}">
+                                                                    <option th:value="${asociacion.id}" th:text="${asociacion.nombre}"></option>
+                                                                </div>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${asociaciones == null || asociaciones.empty}">
+                                                        <small class="text-danger">No existen asociaciones</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="distrito">Distrito</label>
+                                                    <!--/*@thymesVar id="distritos" type="java.util.List<com.iunis.adventclub.domain.Distrito>"*/-->
+                                                    <div th:if="${distritos != null && !distritos.empty}">
+                                                        <select name="distrito" class="form-control" required onchange='this.form.submit();'>
+                                                            <option value="0">Seleccione una Distrito</option>
+                                                            <div th:each="distrito : ${distritos}">
+                                                                <div th:if="${distrito.id == distritoSelected}">
+                                                                    <option th:value="${distrito.id}" th:text="${distrito.nombre}" selected></option>
+                                                                </div>
+                                                                <div th:if="${distrito.id != distritoSelected}">
+                                                                    <option th:value="${distrito.id}" th:text="${distrito.nombre}"></option>
+                                                                </div>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${distritos == null || distritos.empty}">
+                                                        <small class="text-danger">No existen distritos o no se selecciono una asociación</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="iglesia">Iglesia</label>
+                                                    <!--/*@thymesVar id="iglesias" type="java.util.List<com.iunis.adventclub.domain.Iglesia>"*/-->
+                                                    <div th:if="${iglesias != null && !iglesias.empty}">
+                                                        <select name="iglesia" class="form-control" required onchange='this.form.submit();'>
+                                                            <option value="0">Seleccione una Iglesia</option>
+                                                            <div th:each="iglesia : ${iglesias}">
+                                                                <div th:if="${iglesia.id == iglesiaSelected}">
+                                                                    <option th:value="${iglesia.id}" th:text="${iglesia.nombre}" selected></option>
+                                                                </div>
+                                                                <div th:if="${iglesia.id != iglesiaSelected}">
+                                                                    <option th:value="${iglesia.id}" th:text="${iglesia.nombre}"></option>
+                                                                </div>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${iglesias == null || iglesias.empty}">
+                                                        <small class="text-danger">No existen iglesias o no se selecciono un distrito</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="club">Club</label>
                                                     <!--/*@thymesVar id="clubes" type="java.util.List<com.iunis.adventclub.domain.Club>"*/-->
                                                     <div th:if="${clubes != null && !clubes.empty}">
-                                                        <select th:field="${clubes}" class="form-control" required>
+                                                        <select name="club" class="form-control" required onchange='this.form.submit();'>
+                                                            <option value="0">Seleccione un Club</option>
                                                             <div th:each="club : ${clubes}">
-                                                                <option th:value="${club.id}" th:text="${club.nombre}"></option>
+                                                                <div th:if="${club.id == clubSelected}">
+                                                                    <option th:value="${club.id}" th:text="${club.nombre}" selected></option>
+                                                                </div>
+                                                                <div th:if="${club.id != clubSelected}">
+                                                                    <option th:value="${club.id}" th:text="${club.nombre}"></option>
+                                                                </div>
                                                             </div>
                                                         </select>
                                                     </div>
                                                     <div th:if="${clubes == null || clubes.empty}">
-                                                        <p class="p-0 m-0">NO EXISTEN CLUBES</p>
-                                                        <small class="text-danger">No puede dar de alta ningun miembro</small>
+                                                        <small class="text-danger">No existen clubes o no se selecciono una iglesia</small>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="clase">Clase</label>
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Nombre del tesorero" required>
-                                                </div>
-                                            </div>
-                                            <!--<div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="iglesia">Iglesia</label>
-                                                    <div th:if="${iglesias != null && !iglesias.empty}">
-                                                        <select name="iglesia" id="iglesias.id" class="form-control" required>
-                                                            <div th:each="iglesia : ${iglesias}">
-                                                                <option th:value="${iglesia.id}" th:text="${iglesia.nombre}"></option>
+                                                    <!--/*@thymesVar id="clases" type="java.util.List<com.iunis.adventclub.domain.Clase>"*/-->
+                                                    <div th:if="${clases != null && !clases.empty}">
+                                                        <select name="clase" id="clase.id" class="form-control" required>
+                                                            <div th:each="clase : ${clases}">
+                                                                <option th:value="${clase.id}" th:text="${clase.descripcion}"></option>
                                                             </div>
                                                         </select>
                                                     </div>
-                                                    <div th:if="${iglesias == null || iglesias.empty}">
-                                                        NO EXISTEN IGLESIAS
+                                                    <div th:if="${clases == null || clases.empty}">
+                                                        <small class="text-danger">No existen clases o no se selecciono un club</small>
                                                     </div>
                                                 </div>
-                                            </div>-->
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="card-footer text-right">
-                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()" name="action" value="save">
                                             <i class="ion ion-plus"></i> Agregar
                                         </button>
                                     </div>
@@ -1322,7 +1523,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Clases -->
+                    <!-- Clases-->
                     <div th:fragment="class" class="row">
                         <div class="col-md-6">
                             <div class="card card-maroon">
@@ -1339,7 +1540,7 @@
                                                 <div class="form-group">
                                                     <label for="nombre">Nombre de la clase</label>
                                                     <input type="text" class="form-control" th:field="*{descripcion}"
-                                                           placeholder="Nombre del club" required>
+                                                           placeholder="Nombre de la clase" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
@@ -1460,6 +1661,182 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Periodos -->
+                    <div th:fragment="period" class="row">
+                        <div class="col-md-6">
+                            <div class="card card-maroon">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nuevo Periodo</h3>
+                                </div>
+                                <!--/*@thymesVar id="periodoeclesiastico" type="com.iunis.adventclub.domain.Periodoeclesiastico"*/-->
+                                <form th:action="@{/periodoCreate}" method="POST" th:object="${periodoeclesiastico}">
+                                    <!-- Pasando el estaus activo -->
+                                    <input type="hidden" name="estatus" value="1">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombre">Nombre</label>
+                                                    <input type="text" class="form-control" th:field="*{descripcion}"
+                                                           placeholder="Nombre de la clase" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="iglesia">Clubes</label>
+                                                    <!--/*@thymesVar id="clubes" type="java.util.List<com.iunis.adventclub.domain.Club>"*/-->
+                                                    <div th:if="${clubes != null && !clubes.empty}">
+                                                        <select name="club" class="form-control" required>
+                                                            <div th:each="club : ${clubes}">
+                                                                <option th:value="${club.id}" th:text="${club.nombre}"></option>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                    <div th:if="${clubes == null || clubes.empty}">
+                                                        NO EXISTEN CLUBES
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="inicio">Fecha Inicio</label>
+                                                    <input type="date" class="form-control" th:field="*{inicioinscripcion}"
+                                                           placeholder="Nombre de la clase" pattern="yyyy-MM-dd" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="fin">Fecha Fin</label>
+                                                    <input type="date" class="form-control" th:field="*{fininscripcion}"
+                                                           placeholder="Nombre de la clase" pattern="yyyy-MM-dd" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="text-danger" th:text="${ERROR}"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                            <i class="ion ion-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Periodos de Inscripcion Programados</h3>
+                                </div>
+                                <div class="card-body p-0">
+                                    <table class="table table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Descripción</th>
+                                            <th>Club</th>
+                                            <th>Inicio</th>
+                                            <th>Fin</th>
+                                        </tr>
+                                        </thead>
+                                        <!--/*@thymesVar id="periodos" type="java.util.List<com.iunis.adventclub.domain.Periodoeclesiastico>"*/-->
+                                        <tbody th:if="${periodos != null && !periodos.empty}">
+                                        <tr th:each="periodo : ${periodos}">
+                                            <td th:text="${periodo.id}"></td>
+                                            <td th:text="${periodo.descripcion}"></td>
+                                            <td th:text="${periodo.club.nombre}"></td>
+                                            <td th:text="${periodo.inicioinscripcion}" class="text-bold"></td>
+                                            <td th:text="${periodo.fininscripcion}" class="text-bold"></td>
+                                            <td>
+                                                <a class="text-primary" th:href="@{/periodoUpdate(id=${periodo.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
+                                                <a class="text-danger" th:href="@{/periodoDelete(id=${periodo.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <div th:if="${periodos == null || periodos.empty}">
+                                            <div class="alert alert-danger" role="alert">
+                                                NO EXISTEN PERIODOS PROGRAMADOS!!!
+                                            </div>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal de edicion -->
+                        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateModalLabel">Editar Clase</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!--/*@thymesVar id="periodoUpdate" type="com.iunis.adventclub.domain.Periodoeclesiastico"*/-->
+                                        <form th:action="@{/periodoCreate}" method="POST" th:object="${periodoUpdate}">
+                                            <!-- Pasando el id del periodo -->
+                                            <input type="hidden" name="id" th:field="*{id}">
+                                            <!-- Pasando el estaus activo -->
+                                            <input type="hidden" name="estatus" th:field="*{estatus.id}">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombre">Nombre</label>
+                                                            <input type="text" class="form-control" th:field="*{descripcion}"
+                                                                   placeholder="Nombre de la clase" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="iglesia">Clubes</label>
+                                                            <!--/*@thymesVar id="clubes" type="java.util.List<com.iunis.adventclub.domain.Club>"*/-->
+                                                            <div th:if="${clubes != null && !clubes.empty}">
+                                                                <select name="club" class="form-control" required>
+                                                                    <div th:each="club : ${clubes}">
+                                                                        <option th:value="${club.id}" th:text="${club.nombre}"></option>
+                                                                    </div>
+                                                                </select>
+                                                            </div>
+                                                            <div th:if="${clubes == null || clubes.empty}">
+                                                                NO EXISTEN CLUBES
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="inicio">Fecha Inicio</label>
+                                                            <input type="date" class="form-control" th:field="*{inicioinscripcion}"
+                                                                   placeholder="Nombre de la clase" pattern="yyyy-MM-dd" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="fin">Fecha Fin</label>
+                                                            <input type="date" class="form-control" th:field="*{fininscripcion}"
+                                                                   placeholder="Nombre de la clase" pattern="yyyy-MM-dd" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <p class="text-danger" th:text="${ERROR}"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-right">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                                    <i class="fas fa-save"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
             <!-- /Main content -->
@@ -1520,6 +1897,9 @@
 
             if(getParameter("modal") == "true"){
                 $("#updateModal").modal();
+            }
+            if(getParameter("alertModal") == "true"){
+                $("#alertModal").modal();
             }
         </script>
 

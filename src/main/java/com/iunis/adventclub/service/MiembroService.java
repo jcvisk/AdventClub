@@ -11,4 +11,5 @@ public interface MiembroService {
     /*public void updateMiembro(Miembro miembro);*/
     public Miembro findMiembroById(Miembro miembro);
     public List<Miembro> findMiembroByEstatusActivo();
+    Integer countActivos();
 }

@@ -14,4 +14,5 @@ public interface ClaseService {
     public Clase findClaseById(Clase clase);
     public List<Clase> findClaseByEstatusActivo();
     public List<Clase> findClasesByIdClub(long idClub);
+    public Integer countActivos();
 }

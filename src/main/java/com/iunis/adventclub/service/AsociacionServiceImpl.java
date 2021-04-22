@@ -61,4 +61,11 @@ public class AsociacionServiceImpl implements AsociacionService{
     public List<Asociacion> findAsociacionByEstatusActivo() {
         return asociacionRepository.findByEstatus(DomainKeys.ESTATUS_GENERAL_ACTIVO);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Integer countActivos() {
+        return asociacionRepository.countAsociacionesActivas();
+    }
+
 }

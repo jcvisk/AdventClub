@@ -13,4 +13,5 @@ public interface DistritoService {
     public Distrito findDistritoById(Distrito distrito);
     public List<Distrito> findDistritoByEstatusActivo();
     List<Distrito> findDistritosByIdAsociacion(Long idAsociacion);
+    Integer countActivos();
 }

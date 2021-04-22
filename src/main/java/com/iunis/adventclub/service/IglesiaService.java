@@ -13,4 +13,5 @@ public interface IglesiaService {
     public Iglesia findIglesiaById(Iglesia iglesia);
     public List<Iglesia> findIglesiaByEstatusActivo();
     List<Iglesia> findIglesiasByIdDistrito(Long idDistrito);
+    Integer countActivos();
 }

@@ -39,38 +39,6 @@
                 <section class="content">
                     <div class="container-fluid">
                        <div th:replace="theme/template :: associations"></div>
-                        <!--<div class="row">
-                          <div class="col">
-                            <div th:if="${estatus != null && !estatus.empty}">
-                              <table>
-                                <tr>
-                                  <th>ID:</th>
-                                  <th>Descripcion:</th>
-                                  <th>Panel</th>
-                                </tr>
-
-                                <tr th:each="estatu : ${estatus}">
-                                  <td th:text="${estatu.id}"></td>
-                                  <td th:text="${estatu.descripcion}"></td>
-                                  <td>
-                                    &lt;!&ndash; Path Variable
-                                    <a th:href="@{/editar/} + ${estatu.id}"><i class="fas fa-edit"></i></a>&ndash;&gt;
-                                    <a th:href="@{/editar(id=${estatu.id})}"><i class="fas fa-edit"></i></a>
-                                    &lt;!&ndash; Query Parameter &ndash;&gt;
-                                    <a th:href="@{/eliminar(id=${estatu.id})}"><i class="fas fa-trash-alt"></i></a>
-                                  </td>
-                                </tr>
-
-                              </table>
-                            </div>
-                            <div th:if="${estatus == null || estatus.empty}">
-                              <p>La lista de personas esta vacía</p>
-                            </div>
-                            <div>
-                              <a th:href="@{/agregar}">Agregar</a>
-                            </div>
-                          </div>
-                        </div>-->
                     </div>
                 </section>
 

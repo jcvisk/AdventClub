@@ -53,8 +53,15 @@ public class IglesiaServiceImpl implements IglesiaService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Iglesia> findIglesiasByIdDistrito(Long idDistrito) {
         return iglesiaRepository.findIglesiasByIdDistrito(idDistrito);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Integer countActivos() {
+        return iglesiaRepository.countIglesiasActivas();
     }
 
 }

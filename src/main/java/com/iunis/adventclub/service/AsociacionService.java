@@ -11,4 +11,5 @@ public interface AsociacionService {
     /*public void updateAsociacion(Asociacion asociacion);*/
     public Asociacion findAsociacionById(Asociacion asociacion);
     public List<Asociacion> findAsociacionByEstatusActivo();
+    public Integer countActivos();
 }

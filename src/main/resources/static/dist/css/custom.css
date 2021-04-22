@@ -8,3 +8,18 @@ body{
 .navbar-light{
     background-color: transparent !important;
 }
+
+/*-------------------------------*/
+/*------- PDF TEMPLATE ----------*/
+/*-------------------------------*/
+.pdf-template p{
+    font-size: 1rem
+}
+
+.pdf-template .border-bottom{
+    border-bottom: 1px solid #000000 !important;
+}
+
+.pdf-template .border-top{
+    border-top: 1px solid #000000 !important;
+}

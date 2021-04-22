@@ -53,8 +53,15 @@ public class DistritoServiceImpl implements DistritoService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Distrito> findDistritosByIdAsociacion(Long idAsociacion) {
         return distritoRepository.findDistritosByIdAsociacion(idAsociacion);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Integer countActivos() {
+        return distritoRepository.countDistritosActivos();
     }
 
 }

@@ -13,4 +13,5 @@ public interface ClubService {
     public Club findClubById(Club club);
     public List<Club> findClubByEstatusActivo();
     List<Club> findClubesByIdIglesia(Long idIglesia);
+    Integer countActivos();
 }

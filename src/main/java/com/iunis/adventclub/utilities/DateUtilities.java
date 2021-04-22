@@ -29,12 +29,31 @@ public class DateUtilities {
         return  Integer.toString(anio);
     }
 
-    //Converti la fecha a string
+    /**
+     * Combierte una fecha de tipo Date a String
+     * @param fecha
+     * @return fecha en String
+     */
     public static String dateToString(Date fecha){
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         return sdf.format(fecha);
+    }
+
+    public static void compareDates(Date fecha1, Date fecha2){
+        //si la primer fecha es menor a la segunda fecha
+        if (fecha1.before(fecha2)){
+            System.out.println("La fecha "+fecha1+" es menor a "+fecha2);
+        }
+        //si la primer fecha es mayor a la segunda fecha
+        if (fecha1.after(fecha2)){
+            System.out.println("La fecha "+fecha1+" es mayor a "+fecha2);
+        }
+        //si las fechas son iguales
+        if (fecha1.equals(fecha2)){
+            System.out.println("La fecha "+fecha1+" es igual a "+fecha2);
+        }
     }
 
 }

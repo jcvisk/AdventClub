@@ -56,4 +56,10 @@ public class ClaseServiceImpl implements ClaseService{
     public List<Clase> findClasesByIdClub(long idClub){
         return claseRepository.findClasesByIdClub(idClub);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Integer countActivos() {
+        return claseRepository.countClasesActivas();
+    }
 }
