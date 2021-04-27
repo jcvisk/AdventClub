@@ -3,8 +3,9 @@ package com.iunis.adventclub.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Data
 @Entity
@@ -17,10 +18,12 @@ public class Asociacion implements Serializable {
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
+    @NotEmpty
     @Column(name = "nombre")
     private String nombre;
 
     //Relaciones
+    @Valid
     @JoinColumn(name = "iddatosadministracion", referencedColumnName = "id")
     @OneToOne(cascade= {CascadeType.ALL}, fetch=FetchType.LAZY)
     private Datosadministracion datosadministracion;

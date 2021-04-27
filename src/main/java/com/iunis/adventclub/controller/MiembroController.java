@@ -66,7 +66,7 @@ public class MiembroController {
     }
 
     @GetMapping(value = "/inscripcionDisplay")
-    public String inscripFormAdmin(Miembro miembro, Model model){
+    public String inscripFormAdmin(Miembro miembro, Model model) {
 
         //Mandando una lista de las asociaciones activas
         Iterable<Asociacion> asociacionList = asociacionService.findAsociacionByEstatusActivo();
@@ -78,14 +78,14 @@ public class MiembroController {
     }
 
     @PostMapping(value = "/inscripcionDisplay")
-    public String inscripFormAdminSelects(Miembro miembro, Asociacion asociacion, Distrito distrito, Iglesia iglesia, Club club, Clase clase, Model model){
+    public String inscripFormAdminSelects(Miembro miembro, Asociacion asociacion, Distrito distrito, Iglesia iglesia, Club club, Clase clase, Model model) {
         //Mandando una lista de las asociaciones activas
         Iterable<Asociacion> asociacionList = asociacionService.findAsociacionByEstatusActivo();
         model.addAttribute("asociaciones", asociacionList);
         //Mandando una asociacion seleccionada
         model.addAttribute("asociacionSelected", asociacion.getId());
 
-        if ((asociacion.getId() > 0) && (asociacion.getId() != null)){
+        if ((asociacion.getId() > 0) && (asociacion.getId() != null)) {
             Iterable<Distrito> distritos = distritoService.findDistritosByIdAsociacion(asociacion.getId());
             model.addAttribute("distritos", distritos);
             model.addAttribute("distritoSelected", distrito.getId());
@@ -95,12 +95,12 @@ public class MiembroController {
                 model.addAttribute("iglesias", iglesias);
                 model.addAttribute("iglesiaSelected", iglesia.getId());
 
-                if ((iglesia.getId() != null) && (iglesia.getId() > 0) ){
+                if ((iglesia.getId() != null) && (iglesia.getId() > 0)) {
                     Iterable<Club> clubs = clubService.findClubesByIdIglesia(iglesia.getId());
                     model.addAttribute("clubes", clubs);
-                    model.addAttribute("clubSelected",club.getId());
+                    model.addAttribute("clubSelected", club.getId());
 
-                    if ((club.getId() != null) && (club.getId() > 0)){
+                    if ((club.getId() != null) && (club.getId() > 0)) {
                         Iterable<Clase> clases = claseService.findClasesByIdClub(club.getId());
                         model.addAttribute("clases", clases);
 
@@ -114,11 +114,12 @@ public class MiembroController {
 
     /**
      * Guarda el miembro y redirige a miembroDisplay
+     *
      * @param miembro
      * @return /miembroDisplay
      */
     @PostMapping(value = "/inscripcionDisplay", params = "action=save")
-    public String inscripFormSaveAdmin(Miembro miembro){
+    public String inscripFormSaveAdmin(Miembro miembro) {
         miembroService.createMiembro(miembro);
 
         return "redirect:/miembroDisplay";
@@ -126,12 +127,13 @@ public class MiembroController {
 
     /**
      * En primera instancia muestra el formulario y la lista de asociaicones
+     *
      * @param miembro
      * @param model
      * @return
      */
     @GetMapping(value = "/inscripcionForm")
-    public String inscripFormUser(Miembro miembro, Model model){
+    public String inscripFormUser(Miembro miembro, Model model) {
 
         //Mandando una lista de las asociaciones activas
         Iterable<Asociacion> asociacionList = asociacionService.findAsociacionByEstatusActivo();
@@ -144,6 +146,7 @@ public class MiembroController {
 
     /**
      * Recibe los id y verifica si existen distritos, iglesias, clubes, clases y regresa al formulario con los valores cargados
+     *
      * @param miembro
      * @param asociacion
      * @param distrito
@@ -153,14 +156,14 @@ public class MiembroController {
      * @return
      */
     @PostMapping(value = "/inscripcionForm")
-    public String inscripFormUserSelects(Miembro miembro, Asociacion asociacion, Distrito distrito, Iglesia iglesia, Club club, Model model){
+    public String inscripFormUserSelects(Miembro miembro, Asociacion asociacion, Distrito distrito, Iglesia iglesia, Club club, Model model) {
         //Mandando una lista de las asociaciones activas
         Iterable<Asociacion> asociacionList = asociacionService.findAsociacionByEstatusActivo();
         model.addAttribute("asociaciones", asociacionList);
         //Mandando una asociacion seleccionada
         model.addAttribute("asociacionSelected", asociacion.getId());
 
-        if ((asociacion.getId() > 0) && (asociacion.getId() != null)){
+        if ((asociacion.getId() > 0) && (asociacion.getId() != null)) {
             Iterable<Distrito> distritos = distritoService.findDistritosByIdAsociacion(asociacion.getId());
             model.addAttribute("distritos", distritos);
             model.addAttribute("distritoSelected", distrito.getId());
@@ -170,12 +173,12 @@ public class MiembroController {
                 model.addAttribute("iglesias", iglesias);
                 model.addAttribute("iglesiaSelected", iglesia.getId());
 
-                if ((iglesia.getId() != null) && (iglesia.getId() > 0) ){
+                if ((iglesia.getId() != null) && (iglesia.getId() > 0)) {
                     Iterable<Club> clubs = clubService.findClubesByIdIglesia(iglesia.getId());
                     model.addAttribute("clubes", clubs);
-                    model.addAttribute("clubSelected",club.getId());
+                    model.addAttribute("clubSelected", club.getId());
 
-                    if ((club.getId() != null) && (club.getId() > 0)){
+                    if ((club.getId() != null) && (club.getId() > 0)) {
                         Iterable<Clase> clases = claseService.findClasesByIdClub(club.getId());
                         model.addAttribute("clases", clases);
 
@@ -188,19 +191,19 @@ public class MiembroController {
     }
 
     @PostMapping(value = "/inscripcionForm", params = "action=save")
-    public String inscripFormSaveUser(Miembro miembro){
+    public String inscripFormSaveUser(Miembro miembro) {
 
         Collection<Periodoeclesiastico> periodos = periodoService.findFechasByIdClub(miembro.getClub().getId());
         Date fechaActual = new Date();
 
-        if (periodos.size() > 0){
+        if (periodos.size() > 0) {
             for (Periodoeclesiastico periodo : periodos) {
                 /**
                  * si la fecha de hoy es menor a la fecha de inicio o
                  * si la fecha de hoy es mayor a la fecha de fin
                  */
-                if (fechaActual.before(periodo.getInicioinscripcion()) || fechaActual.after(periodo.getFininscripcion())){
-                    return "redirect:/inscripcionAlertModal?id="+periodo.getId()+"&alertModal=true";
+                if (fechaActual.before(periodo.getInicioinscripcion()) || fechaActual.after(periodo.getFininscripcion())) {
+                    return "redirect:/inscripcionAlertModal?id=" + periodo.getId() + "&alertModal=true";
                 }
 
                 /**si la fecha de hoy es igual a la fecha de inicio o
@@ -208,21 +211,21 @@ public class MiembroController {
                  * si la fecha de hoy es menor a la fecha de fin
                  */
                 if (DateUtilities.dateToString(fechaActual).equals(DateUtilities.dateToString(periodo.getInicioinscripcion()))
-                        || (fechaActual.after(periodo.getInicioinscripcion()) && fechaActual.before(periodo.getFininscripcion()))){
+                        || (fechaActual.after(periodo.getInicioinscripcion()) && fechaActual.before(periodo.getFininscripcion()))) {
 
                     miembroService.createMiembro(miembro);
-                    return "redirect:/getPDF?id="+miembro.getId();
+                    return "redirect:/getPDF?id=" + miembro.getId();
                 }
             }
-        }else{
+        } else {
             miembroService.createMiembro(miembro);
-            return "redirect:/getPDF?id="+miembro.getId();
+            return "redirect:/getPDF?id=" + miembro.getId();
         }
         return "inscripcion";
     }
 
     @GetMapping(value = "/inscripcionAlertModal")
-    public String inscripAlertModal(Miembro miembro,Periodoeclesiastico idPeriodo, Model model){
+    public String inscripAlertModal(Miembro miembro, Periodoeclesiastico idPeriodo, Model model) {
 
         //Mandando una lista de las asociaciones activas
         Iterable<Asociacion> asociacionList = asociacionService.findAsociacionByEstatusActivo();
@@ -239,7 +242,7 @@ public class MiembroController {
     }
 
     @RequestMapping(value = "/getPDF")
-    public ResponseEntity<?> crearPDF(HttpServletRequest request, HttpServletResponse response, Miembro idMiembro) throws IOException{
+    public ResponseEntity<?> crearPDF(HttpServletRequest request, HttpServletResponse response, Miembro idMiembro) throws IOException {
         //llamar la logica de negocio (obtener los datos del miembro)
         Miembro miembro = miembroService.findMiembroById(idMiembro);
 
@@ -259,7 +262,7 @@ public class MiembroController {
     }
 
     @GetMapping(value = "/miembroUpdate")
-    public String update(Miembro miembro, Miembro idMiembro, Model model){
+    public String update(Miembro miembro, Miembro idMiembro, Model model) {
         //mandando la lista de miembros
         Iterable<Miembro> miembroList = miembroService.findMiembroByEstatusActivo();
         model.addAttribute("miembros", miembroList);
@@ -282,18 +285,9 @@ public class MiembroController {
     }
 
     @GetMapping(value = "/miembroDelete")
-    public String delete(Miembro miembro){
+    public String delete(Miembro miembro) {
         miembro = miembroService.findMiembroById(miembro);
         miembroService.deleteMiembro(miembro);
         return "redirect:/miembroDisplay";
     }
-
-    /*@RequestMapping(value = "/getPDFF")
-    public String fjhdsjf(Miembro idMiembro,Model model){
-        Miembro miembro = miembroService.findMiembroById(idMiembro);
-        model.addAttribute("miembro", miembro);
-
-        return "pdfTemplate";
-    }*/
-
 }

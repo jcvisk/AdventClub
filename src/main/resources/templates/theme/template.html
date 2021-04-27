@@ -373,34 +373,39 @@
                                 <!--/*@thymesVar id="asociacion" type="com.iunis.adventclub.domain.Asociacion"*/-->
                                 <form th:action="@{/asociacionCreate}" method="POST" th:object="${asociacion}">
                                     <!-- Pasando el estaus activo -->
-                                    <input type="hidden" name="estatus" value="1" id="estatus.id">
+                                    <input type="hidden" name="estatus" value="1">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombre">Asociación: </label>
-                                                    <input type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre de la asociación" class="form-control"  required>
+                                                    <input type="text" class="form-control" th:field="*{nombre}"
+                                                           placeholder="Nombre de la asociación" >
+                                                    <span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombrePresidente">Presiente</label>
                                                     <input type="text" class="form-control" th:field="*{datosadministracion.precidente}"
-                                                           placeholder="Nombre del presidente" required>
+                                                           placeholder="Nombre del presidente">
+                                                    <span class="text-danger" th:if="${#fields.hasErrors('datosadministracion.precidente')}" th:errors="*{datosadministracion.precidente}"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreSecretario">Secretario</label>
                                                     <input type="text" class="form-control" th:field="*{datosadministracion.secretario}"
-                                                           placeholder="Nombre del secretario" required>
+                                                           placeholder="Nombre del secretario">
+                                                    <span class="text-danger" th:if="${#fields.hasErrors('datosadministracion.secretario')}" th:errors="*{datosadministracion.secretario}"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="nombreTesorero">Tesorero</label>
                                                     <input type="text" class="form-control" th:field="*{datosadministracion.tesorero}"
-                                                           placeholder="Nombre del tesorero" required>
+                                                           placeholder="Nombre del tesorero" >
+                                                    <span class="text-danger" th:if="${#fields.hasErrors('datosadministracion.tesorero')}" th:errors="*{datosadministracion.tesorero}"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -476,28 +481,33 @@
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombre">Asociación: </label>
-                                                            <input type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre de la asociación" class="form-control"  required>
+                                                            <input type="text" class="form-control" th:field="*{nombre}"
+                                                                   placeholder="Nombre de la asociación">
+                                                            <span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombrePresidente">Presiente</label>
                                                             <input type="text" class="form-control" th:field="*{datosadministracion.precidente}"
-                                                                   placeholder="Nombre del presidente" required>
+                                                                   placeholder="Nombre del presidente">
+                                                            <span class="text-danger" th:if="${#fields.hasErrors('datosadministracion.precidente')}" th:errors="*{datosadministracion.precidente}"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombreSecretario">Secretario</label>
                                                             <input type="text" class="form-control" th:field="*{datosadministracion.secretario}"
-                                                                   placeholder="Nombre del secretario" required>
+                                                                   placeholder="Nombre del secretario">
+                                                            <span class="text-danger" th:if="${#fields.hasErrors('datosadministracion.secretario')}" th:errors="*{datosadministracion.secretario}"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="nombreTesorero">Tesorero</label>
                                                             <input type="text" class="form-control" th:field="*{datosadministracion.tesorero}"
-                                                                   placeholder="Nombre del tesorero" required>
+                                                                   placeholder="Nombre del tesorero">
+                                                            <span class="text-danger" th:if="${#fields.hasErrors('datosadministracion.tesorero')}" th:errors="*{datosadministracion.tesorero}"></span>
                                                         </div>
                                                     </div>
                                                 </div>

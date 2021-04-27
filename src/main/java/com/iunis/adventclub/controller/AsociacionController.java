@@ -6,7 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @Slf4j
@@ -27,9 +30,20 @@ public class AsociacionController {
     }
 
     @PostMapping(value = "/asociacionCreate")
-    public String create(Asociacion asociacion){
-        asociacionService.createAsociacion(asociacion);
-        return "redirect:/asociacionDisplay";
+    public String create(@Valid Asociacion asociacion, Errors errores, Model model){
+        if (errores.hasErrors()){
+            //Obteniendo una lista de asociaciones activas
+            Iterable<Asociacion> asociacionesList = asociacionService.findAsociacionByEstatusActivo();
+            model.addAttribute("asociaciones", asociacionesList);
+
+            //enviando asociacionUpdate vacia solo para evitar error en el modal de edicion
+            model.addAttribute("asociacionUpdate", asociacion);
+
+            return "asociacion";
+        }else{
+            asociacionService.createAsociacion(asociacion);
+            return "redirect:/asociacionDisplay";
+        }
     }
 
     @GetMapping(value = "/asociacionDelete")

@@ -3,6 +3,7 @@ package com.iunis.adventclub.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Set;
 
 @Data
@@ -14,6 +15,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //@Email
     @Column(name = "usuario")
     private String usuario;
 
