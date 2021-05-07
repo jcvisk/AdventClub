@@ -24,6 +24,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .authorizeRequests()
                 .antMatchers(resourses).permitAll()
+                .antMatchers("/adventClub").permitAll()
+                .antMatchers("/inscripcionForm").permitAll()
+                .antMatchers("/getPDF").permitAll()
                 .antMatchers("/","/index").permitAll()
                 .antMatchers("/admin**").access("hasRole('ADMIN')")
                 .antMatchers("/user**").access("hasRole('USER') or hasRole('ADMIN')")
@@ -38,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .and()
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("logout"))
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
                 .permitAll();
     }

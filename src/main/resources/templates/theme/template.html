@@ -46,6 +46,9 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a th:href="@{/}" class="nav-link">Contact</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a th:href="@{/logout}" class="nav-link">Salir</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -53,6 +56,7 @@
                         <div class="image">
                             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
+
                         <div class="info">
                             <a th:href="@{/}" class="d-block">Admin</a>
                         </div>
@@ -69,7 +73,7 @@
 
         <!-- Main Sidebar Container -->
         <aside th:fragment="sidebar" class="main-sidebar sidebar-dark-primary elevation-4">
-            <a th:href="@{/}" class="brand-link">
+            <a th:href="@{/dashboard}" class="brand-link">
                 <img src="dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
                 <span class="brand-text font-weight-light">AdventClub</span>
@@ -179,18 +183,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a th:href="@{/}" class="nav-link">
+                            <a th:href="@{/usuarioDisplay}" class="nav-link">
                                 <i class="nav-icon fas fa-users-cog"></i>
                                 <p>
                                     Usuarios
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a th:href="@{/}" class="nav-link">
-                                <i class="nav-icon ion ion-document-text"></i>
-                                <p>
-                                    Reportes
                                 </p>
                             </a>
                         </li>
@@ -344,21 +340,6 @@
                                     <i class="fas fa-users-cog"></i>
                                 </div>
                                 <a th:href="@{/usuarioDisplay}" class="small-box-footer">Ver Más <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-6">
-                            <div class="small-box bg-purple">
-                                <div class="inner">
-                                    <h3>0</h3>
-
-                                    <p>Reportes</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-document-text"></i>
-                                </div>
-                                <a th:href="@{/reportesDisplay}" class="small-box-footer">Ver Más <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -1088,7 +1069,7 @@
                             <div class="card">
                                 <div class="card-header row">
                                     <div class="col-6"><h3 class="card-title">Miembros</h3></div>
-                                    <div class="col-6 text-right"><a type="button" class="btn btn-info" th:href="@{/inscripcionDisplay}">Inscribir Manualmente</a></div>
+                                    <div class="col-6 text-right"><a type="button" class="btn btn-orange" th:href="@{/inscripcionDisplay}">Inscribir Manualmente</a></div>
                                 </div>
                                 <div class="card-body p-0">
                                     <table class="table table-sm">
@@ -1287,7 +1268,7 @@
                                             </div>
                                             <div class="card-footer text-right">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="submit" class="btn btn-maroon" onclick="return validateSaved()" name="action" value="save">
+                                                <button type="submit" class="btn btn-orange" onclick="return validateSaved()" name="action" value="save">
                                                     <i class="fas fa-save"></i> Guardar
                                                 </button>
                                             </div>
@@ -1300,9 +1281,9 @@
                     <!-- Inscripciones -->
                     <div th:fragment="inscriptions" class="row">
                         <div class="col-12">
-                            <div class="card card-maroon">
+                            <div class="card card-orange">
                                 <div class="card-header">
-                                    <h3 class="card-title">Nuevo Miembro</h3>
+                                    <h3 class="card-title text-white">Nuevo Miembro</h3>
                                 </div>
                                 <!--/*@thymesVar id="miembro" type="com.iunis.adventclub.domain.Miembro"*/-->
                                 <form th:action="@{/inscripcionDisplay}" method="POST" th:object="${miembro}">
@@ -1525,7 +1506,7 @@
                                         </div>
                                     </div>
                                     <div class="card-footer text-right">
-                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()" name="action" value="save">
+                                        <button type="submit" class="btn btn-orange" onclick="return validateSaved()" name="action" value="save">
                                             <i class="ion ion-plus"></i> Agregar
                                         </button>
                                     </div>
@@ -1536,7 +1517,7 @@
                     <!-- Clases-->
                     <div th:fragment="class" class="row">
                         <div class="col-md-6">
-                            <div class="card card-maroon">
+                            <div class="card card-warning">
                                 <div class="card-header">
                                     <h3 class="card-title">Nueva Clase</h3>
                                 </div>
@@ -1572,7 +1553,7 @@
                                         </div>
                                     </div>
                                     <div class="card-footer text-right">
-                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                        <button type="submit" class="btn btn-warning" onclick="return validateSaved()">
                                             <i class="ion ion-plus"></i> Agregar
                                         </button>
                                     </div>
@@ -1661,7 +1642,7 @@
                                             </div>
                                             <div class="card-footer text-right">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                                <button type="submit" class="btn btn-warning" onclick="return validateSaved()">
                                                     <i class="fas fa-save"></i> Guardar
                                                 </button>
                                             </div>
@@ -1674,7 +1655,7 @@
                     <!-- Periodos -->
                     <div th:fragment="period" class="row">
                         <div class="col-md-6">
-                            <div class="card card-maroon">
+                            <div class="card card-teal">
                                 <div class="card-header">
                                     <h3 class="card-title">Nuevo Periodo</h3>
                                 </div>
@@ -1727,7 +1708,7 @@
                                         </div>
                                     </div>
                                     <div class="card-footer text-right">
-                                        <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                        <button type="submit" class="btn btn-teal" onclick="return validateSaved()">
                                             <i class="ion ion-plus"></i> Agregar
                                         </button>
                                     </div>
@@ -1836,12 +1817,116 @@
                                             </div>
                                             <div class="card-footer text-right">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="submit" class="btn btn-maroon" onclick="return validateSaved()">
+                                                <button type="submit" class="btn btn-teal" onclick="return validateSaved()">
                                                     <i class="fas fa-save"></i> Guardar
                                                 </button>
                                             </div>
                                         </form>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Usuarios -->
+                    <div th:fragment="users" class="row">
+                        <div class="col-md-6">
+                            <div class="card card-info">
+                                <div class="card-header">
+                                    <h3 class="card-title">Nuevo Usuario</h3>
+                                </div>
+                                <!--/*@thymesVar id="usuario" type="com.iunis.adventclub.domain.Usuario"*/-->
+                                <form th:action="@{/usuarioCreate}" method="POST" th:object="${usuario}">
+                                    <!-- Pasando el estaus activo -->
+                                    <input type="hidden" name="estatus" value="1">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombre">Usuario: </label>
+                                                    <input type="text" class="form-control" th:field="*{username}"
+                                                           placeholder="Usuario" >
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombrePresidente">Contraseña</label>
+                                                    <input type="text" class="form-control" th:field="*{userpassword}"
+                                                           placeholder="Contraseña">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreSecretario">Nombre</label>
+                                                    <input type="text" class="form-control" th:field="*{datospersonales.nombre}"
+                                                           placeholder="Nombre">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreTesorero">Apellido Paterno</label>
+                                                    <input type="text" class="form-control" th:field="*{datospersonales.apellidop}"
+                                                           placeholder="Apellido Paterno" >
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="nombreTesorero">Apellido Materno</label>
+                                                    <input type="text" class="form-control" th:field="*{datospersonales.apellidom}"
+                                                           placeholder="Apellido Materno" >
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="iglesia">Rol</label>
+                                                    <select id="club" name="club" class="form-control" required>
+                                                        <option value="1">Admin</option>
+                                                        <option value="2">User</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button type="submit" name="guardar" value="guadar" class="btn btn-info" onclick="return validateSaved();">
+                                            <i class="ion ion-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Usuarios</h3>
+                                </div>
+                                <div class="card-body p-0">
+                                    <table class="table table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Usuario</th>
+                                            <th>Panel</th>
+                                        </tr>
+                                        </thead>
+                                        <!--/*@thymesVar id="usuarios" type="java.util.List<com.iunis.adventclub.domain.Usuario>"*/-->
+                                        <tbody th:if="${usuarios != null && !usuarios.empty}">
+                                        <tr th:each="usuario : ${usuarios}">
+                                            <td th:text="${usuario.id}"></td>
+                                            <td th:text="${usuario.datospersonales.nombre}"></td>
+                                            <td th:text="${usuario.username}"></td>
+                                            <td>
+                                                <a class="text-primary" th:href="@{/periodoUpdate(id=${usuario.id},modal=${'true'})}" ><i class="fas fa-edit"></i></a>
+                                                <a class="text-danger" th:href="@{/periodoDelete(id=${usuario.id})}" onclick="return validateRemoved();"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <div th:if="${usuarios == null || usuarios.empty}">
+                                            <div class="alert alert-danger" role="alert">
+                                                NO EXISTEN USUARIOS!!!
+                                            </div>
+                                        </div>
+                                    </table>
                                 </div>
                             </div>
                         </div>

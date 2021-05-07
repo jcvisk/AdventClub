@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -51,7 +51,7 @@
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Insribirte</a>
+                            <a class="nav-link" th:href="@{/inscripcionForm}">Insribirte</a>
                         </li>
                     </ul>
                 </div>
@@ -63,7 +63,7 @@
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="dist/img/sitio/slide1.png" class="d-block w-100" alt="slide1">
+                        <img src="dist/img/sitio/slide1.png" class="img-fluid w-100" alt="slide1">
                         <div class="carousel-caption row justify-content-end">
                             <div class="col-6">
                                 <h2>Voto del aventurero</h2>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="dist/img/sitio/slide2.png" class="d-block w-100" alt="slide2">
+                        <img src="dist/img/sitio/slide2.png" class="img-fluid w-100" alt="slide2">
                         <div class="carousel-caption row">
                             <div class="col-6">
                                 <h2>Voto del conquistatador</h2>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="dist/img/sitio/slide3.png" class="d-block w-100" alt="slide3">
+                        <img src="dist/img/sitio/slide3.png" class="img-fluid w-100" alt="slide3">
                         <div class="carousel-caption row justify-content-end">
                             <div class="col-6">
                                 <h2>Voto del guía mayor</h2>
@@ -104,7 +104,7 @@
         <!-- Contenido -->
         <section>
             <div class="container">
-                <div class="row">
+                <div class="row my-5">
                     <div class="col-6">
                         <h2>AVENTUREROS </h2>
                         <p>El club de aventureros viene a ser un programa trascendental para el niño en desarrollo, el
@@ -119,7 +119,7 @@
                         <img src="dist/img/sitio/niniosclub.jpg" class="img-fluid w-50" alt="">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row my-5">
                     <div class="col-6 text-center">
                         <img src="dist/img/sitio/aventurero.png" class="img-fluid w-50" alt="">
                     </div>
@@ -133,7 +133,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row my-5">
                     <div class="col-6">
                         <h2>GUÍAS MAYORES</h2>
                         <p>
@@ -159,7 +159,7 @@
         <section>
             <div class="container-fluid m-0 p-0">
                 <img src="dist/img/sitio/dividier.png" class="img-fluid w-100" alt="">
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-12">
                         <div class="card-carousel">
                             <div class="my-card">

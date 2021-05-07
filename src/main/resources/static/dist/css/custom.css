@@ -5,6 +5,18 @@ body{
     background-color: #D81B60;
     color: white;
 }
+.btn-orange{
+    background-color: #FD7E14;
+    color: white;
+}
+.btn-teal{
+    background-color: #20C997;
+    color: white;
+}
+.btn-pink{
+    background-color: #E83E8C;
+    color: white;
+}
 .navbar-light{
     background-color: transparent !important;
 }
@@ -39,4 +51,13 @@ body{
 .carousel-caption {
     bottom: 40%;
     text-align: left;
+}
+/*login*/
+.content-login{
+    background-image: url("../img/fondo-login.jpg");
+    height: 100vh;
+}
+.bg-transparent-white{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
 }

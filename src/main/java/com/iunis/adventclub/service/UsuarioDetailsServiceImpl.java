@@ -24,7 +24,8 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         //buscar el usuario con el repositorio
-        Usuario usuario = usuarioRepository.findUsuarioByUsuario(userName).orElseThrow(()-> new UsernameNotFoundException("ERROR: no existe el usuario"));
+        //Usuario usuario = usuarioRepository.findUsuarioByUsuario(userName).orElseThrow(()-> new UsernameNotFoundException("ERROR: no existe el usuario"));
+        Usuario usuario = usuarioRepository.findUsuarioByUsername(userName).orElseThrow(()-> new UsernameNotFoundException("ERROR: no existe el usuario"));
 
         //Mapear nuestra lista de roles con la de SpringSecurity
         List grandList = new ArrayList();
@@ -36,7 +37,8 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
         }
 
         //Crear el objeto UserDetail
-        UserDetails userDetails = (UserDetails) new User(usuario.getUsuario(), usuario.getPassword(), grandList);
+        //UserDetails userDetails = (UserDetails) new User(usuario.getUsuario(), usuario.getPassword(), grandList);
+        UserDetails userDetails = (UserDetails) new User(usuario.getUsername(), usuario.getUserpassword(), grandList);
 
         return userDetails;
     }

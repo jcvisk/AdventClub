@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 
-<head th:replace="theme/template :: head"></head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="dist/img/logo.png" type="image/x-icon">
+    <title th:fragment="title">AdventClub | Adminitración</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="dist/css/custom.css">
+    <!-- input -->
+    <!--
+    <link rel="stylesheet" href="dist/css/input.css">
+     -->
+</head>
 
 <body>
-<main class="content">
+<main class="content-login">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <form th:action="@{/login}" th:method="POST">
+        <div class="row justify-content-center vh-100">
+            <div class="col-6 align-self-center">
+                <form th:action="@{/login}" th:method="POST" class="p-5 bg-transparent-white">
                     <div class="form-group">
                         <label for="username">Usuario</label>
                         <input type="text" class="form-control" name="username" id="username" aria-describedby="Nombre de Usuario">

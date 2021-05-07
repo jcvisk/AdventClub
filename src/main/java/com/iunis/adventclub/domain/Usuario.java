@@ -4,31 +4,33 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.io.Serializable;
 import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
-    //@Email
-    @Column(name = "usuario")
-    private String usuario;
+    @Column(name = "username")
+    private String username;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "userpassword")
+    private String userpassword;
 
     //relaciones
-    @ManyToOne
-    @JoinColumn(name = "iddatospersonales")
+    @JoinColumn(name = "iddatospersonales", referencedColumnName = "id")
+    @OneToOne(cascade= {CascadeType.ALL}, fetch=FetchType.LAZY)
     private Datospersonales datospersonales;
 
-    @ManyToOne
-    @JoinColumn(name = "idestatus")
+    @JoinColumn(name = "idestatus", referencedColumnName = "id")
+    @ManyToOne(cascade= {CascadeType.ALL}, fetch=FetchType.LAZY)
     private Estatus estatus;
 
     /**
@@ -51,6 +53,12 @@ public class Usuario {
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
+                ", usuario='" + username + '\'' +
+                ", password='" + userpassword + '\'' +
+                ", datospersonales=" + datospersonales +
+                ", estatus=" + estatus +
+                ", rol=" + rol +
+                ", club=" + club +
                 '}';
     }
 }
