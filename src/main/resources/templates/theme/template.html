@@ -179,6 +179,8 @@
                                 <i class="nav-icon ion ion-android-calendar"></i>
                                 <p>
                                     Periodo
+                                    <!--/*@thymesVar id="countPeriodos" type="com.iunis.adventclub.domain.Periodoeclesiastico"*/-->
+                                    <span class="badge badge-info right" th:text="${countPeriodos}"></span>
                                 </p>
                             </a>
                         </li>
@@ -187,6 +189,8 @@
                                 <i class="nav-icon fas fa-users-cog"></i>
                                 <p>
                                     Usuarios
+                                    <!--/*@thymesVar id="countUsuarios" type="com.iunis.adventclub.domain.Usuario"*/-->
+                                    <span class="badge badge-info right" th:text="${countUsuarios}"></span>
                                 </p>
                             </a>
                         </li>
@@ -317,7 +321,7 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-teal">
                                 <div class="inner">
-                                    <h3>0</h3>
+                                    <h3 th:text="${countPeriodos}"></h3>
 
                                     <p>Periodo</p>
                                 </div>
@@ -332,7 +336,7 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-pink">
                                 <div class="inner">
-                                    <h3>0</h3>
+                                    <h3 th:text="${countUsuarios}"></h3>
 
                                     <p>Usuarios</p>
                                 </div>

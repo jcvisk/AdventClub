@@ -45,4 +45,9 @@ public class UsuarioServiceImpl implements UsuarioService{
     public Usuario findUsuarioById(Usuario usuario) {
         return null;
     }
+
+    @Override
+    public Integer countUsuariosActivos() {
+        return usuarioRepository.countUsuariosActivos();
+    }
 }

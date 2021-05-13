@@ -10,4 +10,5 @@ public interface UsuarioService {
     public void deleteUsuario(Usuario usuario);
     public void updateUsuario(Usuario usuario);
     public Usuario findUsuarioById(Usuario usuario);
+    Integer countUsuariosActivos();
 }

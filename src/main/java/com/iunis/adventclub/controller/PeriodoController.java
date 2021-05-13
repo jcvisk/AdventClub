@@ -53,14 +53,26 @@ public class PeriodoController {
             }else{
                 model.addAttribute("clubes", clubs);
                 model.addAttribute("ERROR", "La fecha de fin debe ser igual o mayor a la fecha de hoy");
+
+                Iterable<Periodoeclesiastico> periodos = periodoService.findPeriodoByEstatusActivo();
+                model.addAttribute("periodos", periodos);
+
+                //mandando periodoUpdate para evitar error en el modal de edicion
+                model.addAttribute("periodoUpdate", periodo);
             }
 
         }else{
             model.addAttribute("clubes", clubs);
             model.addAttribute("ERROR", "La fecha de inicio no puede ser mayor a la fecha de fin");
+
+            Iterable<Periodoeclesiastico> periodos = periodoService.findPeriodoByEstatusActivo();
+            model.addAttribute("periodos", periodos);
+
+            //mandando periodoUpdate para evitar error en el modal de edicion
+            model.addAttribute("periodoUpdate", periodo);
         }
 
-        return "redirect:/periodoDisplay";
+        return "periodo";
     }
 
     @GetMapping(value = "/periodoUpdate")

@@ -52,6 +52,11 @@ body{
     bottom: 40%;
     text-align: left;
 }
+.bg-light{
+    background-color: white !important;
+    color: black !important;
+    font-weight: bold !important;
+}
 /*login*/
 .content-login{
     background-image: url("../img/fondo-login.jpg");

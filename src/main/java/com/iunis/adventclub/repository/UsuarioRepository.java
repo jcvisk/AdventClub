@@ -11,4 +11,8 @@ import java.util.Optional;
 public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
     //public Optional<Usuario> findUsuarioByUsuario(String nombre);
     public Optional<Usuario> findUsuarioByUsername(String nombre);
+
+    @Query(value = "SELECT COUNT(*) FROM usuarios WHERE idestatus = 1",nativeQuery = true)
+    Integer countUsuariosActivos();
+
 }

@@ -15,4 +15,7 @@ public interface PeriodoeclesiasticoRepository extends CrudRepository<Periodoecl
 
     @Query(value = "select * from periodoeclesiastico WHERE periodoeclesiastico.idclub = :idClub",nativeQuery = true)
     List<Periodoeclesiastico> findFechasByIdClub(@Param("idClub") Long idClub);
+
+    @Query(value = "SELECT COUNT(*) FROM periodoeclesiastico WHERE idestatus = 1",nativeQuery = true)
+    Integer countPeriodosActivos();
 }

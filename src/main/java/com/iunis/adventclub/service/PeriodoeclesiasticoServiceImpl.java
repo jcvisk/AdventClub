@@ -55,6 +55,6 @@ public class PeriodoeclesiasticoServiceImpl implements PeriodoeclesiasticoServic
     @Override
     @Transactional(readOnly = true)
     public Integer countActivos() {
-        return null;
+        return periodoRepository.countPeriodosActivos();
     }
 }

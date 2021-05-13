@@ -27,6 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/adventClub").permitAll()
                 .antMatchers("/inscripcionForm").permitAll()
                 .antMatchers("/getPDF").permitAll()
+                .antMatchers("/reimpresion").permitAll()
                 .antMatchers("/","/index").permitAll()
                 .antMatchers("/admin**").access("hasRole('ADMIN')")
                 .antMatchers("/user**").access("hasRole('USER') or hasRole('ADMIN')")

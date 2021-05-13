@@ -36,7 +36,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <header>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="" href="#">
                     <img src="dist/img/logo2.png" alt="logo" class="w-50 img-fluid">
@@ -48,10 +48,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" th:href="@{/adventClub}"><strong>Home</strong> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/inscripcionForm}">Insribirte</a>
+                            <a class="nav-link" th:href="@{/inscripcionForm}"><strong>Inscribirte</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/reimpresion}"><strong>Imprimir Nuevamente</strong></a>
                         </li>
                     </ul>
                 </div>

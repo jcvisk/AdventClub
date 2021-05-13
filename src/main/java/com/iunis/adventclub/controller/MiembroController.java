@@ -241,6 +241,11 @@ public class MiembroController {
         return "inscripcion";
     }
 
+    @GetMapping(value = "/reimpresion")
+    public String reimpresion(Miembro miembro){
+        return "reimpresion";
+    }
+
     @RequestMapping(value = "/getPDF")
     public ResponseEntity<?> crearPDF(HttpServletRequest request, HttpServletResponse response, Miembro idMiembro) throws IOException {
         //llamar la logica de negocio (obtener los datos del miembro)

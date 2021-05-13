@@ -22,6 +22,10 @@ public class DashboardController {
     ClaseService claseService;
     @Autowired
     MiembroService miembroService;
+    @Autowired
+    PeriodoeclesiasticoService periodoService;
+    @Autowired
+    UsuarioService usuarioService;
 
     @GetMapping({"/","/login"})
     public String login(){
@@ -36,6 +40,8 @@ public class DashboardController {
         model.addAttribute("countClubes",clubService.countActivos());
         model.addAttribute("countClases",claseService.countActivos());
         model.addAttribute("countMiembros",miembroService.countActivos());
+        model.addAttribute("countPeriodos", periodoService.countActivos());
+        model.addAttribute("countUsuarios", usuarioService.countUsuariosActivos());
         return "index";
     }
 }

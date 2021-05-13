@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="theme/template :: head"></head>
+
+<body>
+<main class="content">
+    <section>
+        <header>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="" href="#">
+                        <img src="dist/img/logo2.png" alt="logo" class="w-50 img-fluid">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/adventClub}"><strong>Home</strong> <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/inscripcionForm}"><strong>Inscribirte</strong></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" th:href="@{/reimpresion}"><strong>Imprimir Nuevamente</strong></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </section>
+    <div class="container my-5">
+        <div class="col-6 py-5">
+            <h2>Bienvenido al área de reimpresión</h2>
+            <p class="lead">Para solicitar tu documento de inscripción basta tan solo con introducir tu id</p>
+
+            <form th:action="@{/getPDF}" method="GET" th:object="${miembro}" class="mt-5">
+                <div class="form-group">
+                    <label for="id">Id</label>
+                    <input type="text" class="form-control" aria-describedby="id" th:field="*{id}">
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<div th:replace="theme/template :: js"></div>
+</body>
+</html>
